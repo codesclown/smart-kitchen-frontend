@@ -252,4 +252,4 @@ MIT License - see LICENSE file for details
 For support and questions:
 - Create an issue in the repository
 - Check the component documentation
-- Review the GraphQL schema in the backend
+- Review the GraphQL schema in the backend# smart-kitchen-frontend
