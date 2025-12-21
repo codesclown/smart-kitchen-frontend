@@ -33,12 +33,23 @@ export function useUsageLogs(limit = 100) {
   const addLog = async (logData: any) => {
     if (!kitchenId) throw new Error('No kitchen selected');
     
+    // Convert date string to proper DateTime format
+    const processedData = {
+      ...logData,
+      kitchenId,
+    };
+
+    // If date is provided as date-only string, convert to DateTime
+    if (processedData.date && typeof processedData.date === 'string') {
+      // If it's just a date (YYYY-MM-DD), add time to make it a valid DateTime
+      if (processedData.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        processedData.date = new Date(processedData.date + 'T12:00:00.000Z').toISOString();
+      }
+    }
+    
     return createLog({
       variables: {
-        input: {
-          ...logData,
-          kitchenId,
-        },
+        input: processedData,
       },
     });
   };

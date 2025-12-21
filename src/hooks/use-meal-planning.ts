@@ -175,8 +175,19 @@ export function useMealPlanning(kitchenId?: string) {
   // Helper functions
   const addMealPlan = async (input: CreateMealPlanInput) => {
     try {
+      // Convert date string to proper DateTime format
+      const processedInput = { ...input, kitchenId };
+      
+      // If date is provided as date-only string, convert to DateTime
+      if (processedInput.date && typeof processedInput.date === 'string') {
+        // If it's just a date (YYYY-MM-DD), add time to make it a valid DateTime
+        if (processedInput.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          processedInput.date = new Date(processedInput.date + 'T12:00:00.000Z').toISOString();
+        }
+      }
+      
       await createMealPlan({
-        variables: { input: { ...input, kitchenId } }
+        variables: { input: processedInput }
       });
     } catch (error) {
       console.error('Error creating meal plan:', error);

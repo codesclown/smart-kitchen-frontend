@@ -150,21 +150,52 @@ export function useInventory() {
   };
 
   const addBatch = async (itemId: string, batchData: any) => {
+    // Convert date strings to proper DateTime format
+    const processedData = { itemId, ...batchData };
+    
+    // Handle expiryDate
+    if (processedData.expiryDate && typeof processedData.expiryDate === 'string') {
+      if (processedData.expiryDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        processedData.expiryDate = new Date(processedData.expiryDate + 'T12:00:00.000Z').toISOString();
+      }
+    }
+    
+    // Handle purchaseDate
+    if (processedData.purchaseDate && typeof processedData.purchaseDate === 'string') {
+      if (processedData.purchaseDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        processedData.purchaseDate = new Date(processedData.purchaseDate + 'T12:00:00.000Z').toISOString();
+      }
+    }
+    
     return createBatch({
       variables: {
-        input: {
-          itemId,
-          ...batchData,
-        },
+        input: processedData,
       },
     });
   };
 
   const editBatch = async (id: string, batchData: any) => {
+    // Convert date strings to proper DateTime format
+    const processedData = { ...batchData };
+    
+    // Handle expiryDate
+    if (processedData.expiryDate && typeof processedData.expiryDate === 'string') {
+      if (processedData.expiryDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        processedData.expiryDate = new Date(processedData.expiryDate + 'T12:00:00.000Z').toISOString();
+      }
+    }
+    
+    // Handle purchaseDate
+    if (processedData.purchaseDate && typeof processedData.purchaseDate === 'string') {
+      if (processedData.purchaseDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        processedData.purchaseDate = new Date(processedData.purchaseDate + 'T12:00:00.000Z').toISOString();
+      }
+    }
+    
     return updateBatch({
       variables: {
         id,
-        ...batchData,
+        ...processedData,
       },
     });
   };

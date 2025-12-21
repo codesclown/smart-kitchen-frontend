@@ -186,14 +186,23 @@ export function useWasteTracking(kitchenId?: string) {
   // Helper functions
   const addWasteEntry = async (input: CreateWasteEntryInput) => {
     try {
-      await createWasteEntry({
-        variables: { 
-          input: { 
-            ...input, 
-            kitchenId,
-            preventable: input.preventable ?? true
-          }
+      // Convert date string to proper DateTime format
+      const processedInput = { 
+        ...input, 
+        kitchenId,
+        preventable: input.preventable ?? true
+      };
+      
+      // If date is provided as date-only string, convert to DateTime
+      if (processedInput.date && typeof processedInput.date === 'string') {
+        // If it's just a date (YYYY-MM-DD), add time to make it a valid DateTime
+        if (processedInput.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          processedInput.date = new Date(processedInput.date + 'T12:00:00.000Z').toISOString();
         }
+      }
+      
+      await createWasteEntry({
+        variables: { input: processedInput }
       });
     } catch (error) {
       console.error('Error creating waste entry:', error);

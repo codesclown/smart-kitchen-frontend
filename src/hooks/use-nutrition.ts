@@ -210,8 +210,19 @@ export function useNutrition() {
   // Helper functions
   const addNutritionEntry = async (input: CreateNutritionEntryInput) => {
     try {
+      // Convert date string to proper DateTime format
+      const processedInput = { ...input };
+      
+      // If date is provided as date-only string, convert to DateTime
+      if (processedInput.date && typeof processedInput.date === 'string') {
+        // If it's just a date (YYYY-MM-DD), add time to make it a valid DateTime
+        if (processedInput.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          processedInput.date = new Date(processedInput.date + 'T12:00:00.000Z').toISOString();
+        }
+      }
+      
       await createNutritionEntry({
-        variables: { input }
+        variables: { input: processedInput }
       });
     } catch (error) {
       console.error('Error adding nutrition entry:', error);
