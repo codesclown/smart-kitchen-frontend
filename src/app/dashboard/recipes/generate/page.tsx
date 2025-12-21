@@ -48,256 +48,7 @@ interface Recipe {
   }
 }
 
-const sampleRecipes: Recipe[] = [
-  {
-    id: '1',
-    title: 'Tomato Rice with Available Ingredients',
-    description: 'A flavorful South Indian rice dish made with fresh tomatoes and aromatic spices',
-    prepTime: '15 min',
-    cookTime: '25 min',
-    servings: 4,
-    difficulty: 'Easy',
-    cuisine: 'South Indian',
-    ingredients: [
-      { name: 'Basmati Rice', amount: '2 cups', available: true },
-      { name: 'Tomatoes', amount: '4 large', available: true },
-      { name: 'Onion', amount: '1 medium', available: true },
-      { name: 'Ginger-Garlic Paste', amount: '1 tbsp', available: true },
-      { name: 'Turmeric Powder', amount: '1/2 tsp', available: false },
-      { name: 'Red Chili Powder', amount: '1 tsp', available: true },
-      { name: 'Garam Masala', amount: '1/2 tsp', available: false },
-      { name: 'Oil', amount: '3 tbsp', available: true },
-      { name: 'Salt', amount: 'to taste', available: true }
-    ],
-    instructions: [
-      'Wash and soak basmati rice for 30 minutes, then cook until 70% done',
-      'Heat oil in a heavy-bottomed pan and add cumin seeds',
-      'Add chopped onions and sauté until golden brown',
-      'Add ginger-garlic paste and cook for 1 minute',
-      'Add chopped tomatoes and cook until they break down completely',
-      'Add all the spice powders and cook for 2 minutes',
-      'Add the partially cooked rice and mix gently',
-      'Add salt and 1/2 cup water, cover and cook on low heat for 15 minutes',
-      'Let it rest for 5 minutes before serving'
-    ],
-    tips: [
-      'Use ripe tomatoes for better flavor',
-      'Don\'t overcook the rice initially',
-      'Garnish with fresh coriander and fried onions'
-    ],
-    nutrition: {
-      calories: 320,
-      protein: '8g',
-      carbs: '58g',
-      fat: '12g'
-    }
-  },
-  {
-    id: '2',
-    title: 'Quick Vegetable Stir Fry',
-    description: 'A healthy and colorful mix of seasonal vegetables with minimal ingredients',
-    prepTime: '10 min',
-    cookTime: '15 min',
-    servings: 3,
-    difficulty: 'Easy',
-    cuisine: 'Asian',
-    ingredients: [
-      { name: 'Mixed Vegetables', amount: '3 cups', available: true },
-      { name: 'Garlic', amount: '3 cloves', available: true },
-      { name: 'Soy Sauce', amount: '2 tbsp', available: false },
-      { name: 'Oil', amount: '2 tbsp', available: true },
-      { name: 'Salt', amount: 'to taste', available: true },
-      { name: 'Black Pepper', amount: '1/2 tsp', available: true }
-    ],
-    instructions: [
-      'Heat oil in a wok or large pan over high heat',
-      'Add minced garlic and stir for 30 seconds',
-      'Add harder vegetables first (carrots, beans) and stir-fry for 3-4 minutes',
-      'Add softer vegetables (bell peppers, cabbage) and cook for 2-3 minutes',
-      'Season with salt, pepper, and soy sauce',
-      'Stir everything together and cook for another 2 minutes',
-      'Serve hot with rice or noodles'
-    ],
-    tips: [
-      'Keep vegetables crisp by not overcooking',
-      'Cut all vegetables to similar sizes for even cooking',
-      'Have all ingredients ready before starting to cook'
-    ],
-    nutrition: {
-      calories: 180,
-      protein: '5g',
-      carbs: '15g',
-      fat: '10g'
-    }
-  },
-  {
-    id: '3',
-    title: 'Simple Dal Tadka',
-    description: 'A comforting Indian lentil curry with aromatic tempering',
-    prepTime: '10 min',
-    cookTime: '20 min',
-    servings: 4,
-    difficulty: 'Easy',
-    cuisine: 'Indian',
-    ingredients: [
-      { name: 'Yellow Lentils (Toor Dal)', amount: '1 cup', available: true },
-      { name: 'Onion', amount: '1 medium', available: true },
-      { name: 'Tomato', amount: '1 large', available: true },
-      { name: 'Ginger', amount: '1 inch piece', available: true },
-      { name: 'Cumin Seeds', amount: '1 tsp', available: true },
-      { name: 'Turmeric Powder', amount: '1/2 tsp', available: false },
-      { name: 'Red Chili Powder', amount: '1/2 tsp', available: true },
-      { name: 'Ghee or Oil', amount: '2 tbsp', available: true },
-      { name: 'Salt', amount: 'to taste', available: true }
-    ],
-    instructions: [
-      'Wash and cook lentils with turmeric and salt until soft',
-      'Heat ghee in a pan and add cumin seeds',
-      'Add chopped onions and sauté until golden',
-      'Add ginger and tomatoes, cook until soft',
-      'Add spice powders and cook for 1 minute',
-      'Pour this tempering over cooked dal',
-      'Simmer for 5 minutes and serve hot'
-    ],
-    tips: [
-      'Adjust consistency with water as needed',
-      'Garnish with fresh cilantro',
-      'Serve with rice or roti'
-    ],
-    nutrition: {
-      calories: 220,
-      protein: '12g',
-      carbs: '35g',
-      fat: '8g'
-    }
-  },
-  {
-    id: '4',
-    title: 'Masala Scrambled Eggs',
-    description: 'Spiced Indian-style scrambled eggs perfect for any meal',
-    prepTime: '5 min',
-    cookTime: '8 min',
-    servings: 2,
-    difficulty: 'Easy',
-    cuisine: 'Indian',
-    ingredients: [
-      { name: 'Eggs', amount: '4 large', available: true },
-      { name: 'Onion', amount: '1 small', available: true },
-      { name: 'Tomato', amount: '1 medium', available: true },
-      { name: 'Green Chili', amount: '1-2', available: true },
-      { name: 'Ginger', amount: '1/2 inch', available: true },
-      { name: 'Turmeric Powder', amount: '1/4 tsp', available: false },
-      { name: 'Red Chili Powder', amount: '1/4 tsp', available: true },
-      { name: 'Oil or Butter', amount: '2 tbsp', available: true },
-      { name: 'Salt', amount: 'to taste', available: true }
-    ],
-    instructions: [
-      'Beat eggs with salt and set aside',
-      'Heat oil in a non-stick pan',
-      'Add onions and sauté until translucent',
-      'Add ginger, green chili, and tomatoes',
-      'Cook until tomatoes are soft',
-      'Add spice powders and cook for 30 seconds',
-      'Pour beaten eggs and scramble gently',
-      'Cook until eggs are set but still creamy'
-    ],
-    tips: [
-      'Don\'t overcook the eggs',
-      'Add fresh herbs like cilantro',
-      'Serve with toast or paratha'
-    ],
-    nutrition: {
-      calories: 280,
-      protein: '18g',
-      carbs: '8g',
-      fat: '20g'
-    }
-  },
-  {
-    id: '5',
-    title: 'Aloo Jeera (Cumin Potatoes)',
-    description: 'Simple and flavorful cumin-spiced potatoes',
-    prepTime: '10 min',
-    cookTime: '15 min',
-    servings: 3,
-    difficulty: 'Easy',
-    cuisine: 'Indian',
-    ingredients: [
-      { name: 'Potatoes', amount: '4 medium', available: true },
-      { name: 'Cumin Seeds', amount: '1 tsp', available: true },
-      { name: 'Ginger', amount: '1 inch piece', available: true },
-      { name: 'Green Chili', amount: '1-2', available: true },
-      { name: 'Turmeric Powder', amount: '1/2 tsp', available: false },
-      { name: 'Red Chili Powder', amount: '1/2 tsp', available: true },
-      { name: 'Oil', amount: '3 tbsp', available: true },
-      { name: 'Salt', amount: 'to taste', available: true },
-      { name: 'Fresh Cilantro', amount: '2 tbsp', available: true }
-    ],
-    instructions: [
-      'Boil potatoes until tender, peel and cube them',
-      'Heat oil in a pan and add cumin seeds',
-      'When cumin splutters, add ginger and green chili',
-      'Add cubed potatoes and mix gently',
-      'Sprinkle turmeric, chili powder, and salt',
-      'Cook for 5-7 minutes, stirring occasionally',
-      'Garnish with fresh cilantro and serve'
-    ],
-    tips: [
-      'Don\'t overcook potatoes while boiling',
-      'Be gentle while mixing to avoid breaking',
-      'Serve as a side dish with dal and rice'
-    ],
-    nutrition: {
-      calories: 200,
-      protein: '4g',
-      carbs: '35g',
-      fat: '8g'
-    }
-  },
-  {
-    id: '6',
-    title: 'Simple Vegetable Curry',
-    description: 'A mixed vegetable curry with basic spices',
-    prepTime: '15 min',
-    cookTime: '20 min',
-    servings: 4,
-    difficulty: 'Medium',
-    cuisine: 'Indian',
-    ingredients: [
-      { name: 'Mixed Vegetables', amount: '3 cups', available: true },
-      { name: 'Onion', amount: '2 medium', available: true },
-      { name: 'Tomato', amount: '2 large', available: true },
-      { name: 'Ginger-Garlic Paste', amount: '1 tbsp', available: true },
-      { name: 'Cumin Seeds', amount: '1 tsp', available: true },
-      { name: 'Turmeric Powder', amount: '1/2 tsp', available: false },
-      { name: 'Coriander Powder', amount: '1 tsp', available: true },
-      { name: 'Garam Masala', amount: '1/2 tsp', available: false },
-      { name: 'Oil', amount: '3 tbsp', available: true },
-      { name: 'Salt', amount: 'to taste', available: true }
-    ],
-    instructions: [
-      'Heat oil and add cumin seeds',
-      'Add chopped onions and cook until golden',
-      'Add ginger-garlic paste and cook for 1 minute',
-      'Add tomatoes and cook until they break down',
-      'Add all spice powders and cook for 2 minutes',
-      'Add mixed vegetables and salt',
-      'Cover and cook until vegetables are tender',
-      'Garnish with cilantro and serve hot'
-    ],
-    tips: [
-      'Cut vegetables into uniform sizes',
-      'Adjust spices according to taste',
-      'Add water if needed for desired consistency'
-    ],
-    nutrition: {
-      calories: 160,
-      protein: '6g',
-      carbs: '25g',
-      fat: '8g'
-    }
-  }
-]
+// Sample recipes removed - using only AI-generated recipes
 
 export default function GenerateRecipePage() {
   const router = useRouter()
@@ -386,36 +137,25 @@ export default function GenerateRecipePage() {
         setRecipes(processedRecipes)
         console.log('AI recipes generated successfully:', processedRecipes)
       } else {
-        console.log('No AI recipes returned, using sample recipes')
-        // Randomly select 3-4 recipes from the sample pool for variety
-        const shuffledRecipes = [...sampleRecipes].sort(() => Math.random() - 0.5)
-        const selectedRecipes = shuffledRecipes.slice(0, Math.min(4, sampleRecipes.length))
-        setRecipes(selectedRecipes)
+        console.log('No AI recipes returned')
+        setRecipes([])
+        toast({
+          title: "No recipes found",
+          description: "Unable to generate recipes with your current ingredients. Try adding more items to your inventory.",
+          variant: "destructive",
+        })
       }
       
       haptic.success()
     } catch (error) {
       console.error('Failed to generate recipes:', error)
-      // Enhanced error handling with better fallback
-      const fallbackIngredients = items && items.length > 0 
-        ? items.map((item: any) => item.name).filter(Boolean)
-        : ['rice', 'onions', 'tomatoes', 'spices', 'oil', 'salt']
-        
-      const enhancedSampleRecipes = sampleRecipes.map(recipe => ({
-        ...recipe,
-        ingredients: recipe.ingredients.map((ing: any) => ({
-          ...ing,
-          available: Array.isArray(fallbackIngredients) && fallbackIngredients.some((avail: string) => 
-            ing.name.toLowerCase().includes(avail.toLowerCase()) ||
-            avail.toLowerCase().includes(ing.name.toLowerCase())
-          )
-        }))
-      }))
-      
-      // Randomly select 3-4 recipes for variety
-      const shuffledRecipes = [...enhancedSampleRecipes].sort(() => Math.random() - 0.5)
-      const selectedRecipes = shuffledRecipes.slice(0, Math.min(4, enhancedSampleRecipes.length))
-      setRecipes(selectedRecipes)
+      // Show error message instead of using fallback recipes
+      setRecipes([])
+      toast({
+        title: "Recipe generation failed",
+        description: "Unable to generate recipes at the moment. Please check your internet connection and try again.",
+        variant: "destructive",
+      })
       haptic.error()
     } finally {
       setLoading(false)
