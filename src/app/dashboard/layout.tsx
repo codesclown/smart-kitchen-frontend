@@ -125,7 +125,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <ProtectedRoute>
       <KitchenProvider>
-        <div className="min-h-screen bg-background relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50/50 via-white to-gray-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
 
       <Header />
 
@@ -137,19 +137,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           className="flex-1 overflow-y-auto scrollbar-hide relative"
           onScroll={handleScroll}
         >
-          <div className="page-container page-padding page-spacing mobile-bottom-safe">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 pb-24 sm:pb-8">
 
             {/* BREADCRUMB */}
             <motion.div
-              className="mb-2 sm:mb-4"
+              className="mb-4 sm:mb-6"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="flex items-center gap-1.5 text-[9px] sm:text-xs text-muted-foreground mb-1 sm:mb-2">
+              <div className="flex items-center gap-2 text-mobile-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">
                 <span className="font-medium">Smart Kitchen</span>
                 <span className="opacity-60">/</span>
-                <span className="text-foreground font-semibold capitalize text-[10px] sm:text-sm">
+                <span className="text-foreground font-semibold capitalize text-mobile-sm sm:text-base">
                   {secondaryLabel}
                 </span>
               </div>
@@ -169,7 +169,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 >
                   <Suspense
                     fallback={
-                      <div className="p-4 sm:p-6 text-[10px] sm:text-sm opacity-70">Loading...</div>
+                      <div className="p-6 sm:p-8 text-mobile-sm sm:text-base opacity-70 text-center">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500 mx-auto mb-4"></div>
+                        Loading...
+                      </div>
                     }
                   >
                     {renderContent()}
@@ -178,7 +181,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               </AnimatePresence>
             ) : (
               <div className="relative">
-                <Suspense fallback={<div className="p-4 sm:p-6 opacity-50 text-[10px] sm:text-sm">Loading...</div>}>
+                <Suspense fallback={
+                  <div className="p-6 sm:p-8 opacity-50 text-mobile-sm sm:text-base text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500 mx-auto mb-4"></div>
+                    Loading...
+                  </div>
+                }>
                   {children}
                 </Suspense>
               </div>
@@ -193,12 +201,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 40 }}
                 transition={{ duration: 0.2 }}
-                className="hidden sm:flex fixed bottom-6 right-6 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-indigo-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/40 items-center justify-center border border-white/20"
+                className="hidden sm:flex fixed bottom-6 right-6 z-30 w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-blue-600 text-white shadow-xl shadow-emerald-500/40 items-center justify-center border border-white/20 hover:scale-105 active:scale-95 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToTop}
               >
-                <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                <ArrowUp className="w-6 h-6" />
               </motion.button>
             )}
           </AnimatePresence>

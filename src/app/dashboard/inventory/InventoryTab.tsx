@@ -496,9 +496,9 @@ export function InventoryTab() {
                 haptic.light();
                 setIsAddDialogOpen(true);
               }}
-              className="flex-1 sm:flex-none h-8 sm:h-10 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white shadow-lg shadow-emerald-500/30 text-[10px] sm:text-sm font-medium"
+              className="flex-1 sm:flex-none h-10 sm:h-12"
             >
-              <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+              <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Add Item
             </Button>
           </div>

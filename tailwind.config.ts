@@ -10,6 +10,36 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Enhanced font sizes for mobile-first premium experience
+      fontSize: {
+        // Mobile-optimized sizes (base mobile, then desktop)
+        'mobile-xs': ['0.75rem', { lineHeight: '1rem', fontWeight: '500' }],      // 12px
+        'mobile-sm': ['0.875rem', { lineHeight: '1.25rem', fontWeight: '500' }],  // 14px
+        'mobile-base': ['1rem', { lineHeight: '1.5rem', fontWeight: '500' }],     // 16px
+        'mobile-lg': ['1.125rem', { lineHeight: '1.75rem', fontWeight: '600' }],  // 18px
+        'mobile-xl': ['1.25rem', { lineHeight: '1.75rem', fontWeight: '600' }],   // 20px
+        'mobile-2xl': ['1.5rem', { lineHeight: '2rem', fontWeight: '700' }],      // 24px
+        'mobile-3xl': ['1.875rem', { lineHeight: '2.25rem', fontWeight: '700' }], // 30px
+        'mobile-4xl': ['2.25rem', { lineHeight: '2.5rem', fontWeight: '800' }],   // 36px
+        
+        // Premium button text sizes
+        'btn-xs': ['0.75rem', { lineHeight: '1rem', fontWeight: '600', letterSpacing: '0.025em' }],
+        'btn-sm': ['0.875rem', { lineHeight: '1.25rem', fontWeight: '600', letterSpacing: '0.025em' }],
+        'btn-base': ['1rem', { lineHeight: '1.5rem', fontWeight: '600', letterSpacing: '0.025em' }],
+        'btn-lg': ['1.125rem', { lineHeight: '1.75rem', fontWeight: '600', letterSpacing: '0.025em' }],
+      },
+      
+      // Enhanced spacing for mobile
+      spacing: {
+        'mobile-xs': '0.375rem',  // 6px
+        'mobile-sm': '0.5rem',    // 8px
+        'mobile-md': '0.75rem',   // 12px
+        'mobile-lg': '1rem',      // 16px
+        'mobile-xl': '1.25rem',   // 20px
+        'mobile-2xl': '1.5rem',   // 24px
+        'mobile-3xl': '2rem',     // 32px
+      },
+      
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

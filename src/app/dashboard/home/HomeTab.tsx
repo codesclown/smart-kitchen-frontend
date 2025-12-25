@@ -86,43 +86,55 @@ export function HomeTab() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="space-y-3 sm:space-y-4 p-3 sm:p-6"
+      className="space-y-6 sm:space-y-7 md:space-y-8 p-5 sm:p-6 md:p-8"
     >
       {/* Welcome Banner */}
-      <div className="w-full overflow-hidden relative bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 dark:from-purple-600 dark:via-pink-600 dark:to-purple-700 rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-800/50 backdrop-blur-sm">
+      <div className="w-full overflow-hidden relative rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 backdrop-blur-xl">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-600 dark:from-purple-600 dark:via-pink-600 dark:to-blue-700" />
+        
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 -left-4 w-72 h-72 bg-white/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob" />
           <div className="absolute top-0 -right-4 w-72 h-72 bg-pink-300/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000" />
         </div>
         
-        <div className="relative p-3 sm:p-5">
-          <div className="flex items-center justify-between gap-3">
-            <div className="text-white flex-1">
-              <div className="flex items-center gap-1.5 mb-1">
-                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
-                <h2 className="text-xs sm:text-base font-bold">Welcome Back!</h2>
-              </div>
-              <p className="text-[10px] sm:text-sm text-purple-100 leading-tight">
-                Your kitchen is well organized. {alertItems.length} items need attention.
+        <div className="relative p-6 sm:p-7 md:p-8">
+          <div className="flex items-center justify-between gap-5">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-mobile-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-3 mobile-text-shadow">
+                Welcome Back! 👋
+              </h1>
+              <p className="text-mobile-base sm:text-lg md:text-xl text-purple-100 leading-relaxed mobile-text-shadow">
+                Your kitchen is running smoothly. Here's what's happening today.
               </p>
             </div>
-            <div className="hidden sm:block p-2 sm:p-3 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl">
-              <Package className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <div className="flex-shrink-0">
+              <Button
+                variant="secondary"
+                size="default"
+                onClick={() => {
+                  haptic.light()
+                  router.push('/dashboard/inventory/scan')
+                }}
+                className="bg-white/30 backdrop-blur-sm border-white/40 text-white hover:bg-white/40 shadow-xl hover:shadow-2xl"
+              >
+                <Camera className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="hidden sm:inline">Scan</span>
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
           <StatCard
-            icon={<Package className="w-4 h-4 sm:w-5 sm:h-5" />}
+            icon={<Package className="w-6 h-6 sm:w-7 sm:h-7" />}
             title="Total Items"
             value={loading ? "..." : stats.total.toString()}
             trend="+2 today"
@@ -136,7 +148,7 @@ export function HomeTab() {
           transition={{ delay: 0.15 }}
         >
           <StatCard
-            icon={<AlertCircle className="w-4 h-4 sm:w-5 sm:h-5" />}
+            icon={<AlertCircle className="w-6 h-6 sm:w-7 sm:h-7" />}
             title="Low Stock"
             value={loading ? "..." : stats.lowStock.toString()}
             trend="Needs attention"
@@ -150,7 +162,7 @@ export function HomeTab() {
           transition={{ delay: 0.2 }}
         >
           <StatCard
-            icon={<ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />}
+            icon={<ShoppingCart className="w-6 h-6 sm:w-7 sm:h-7" />}
             title="Shopping"
             value={shoppingLoading ? "..." : `₹${(totalShoppingValue || 0).toFixed(0)}`}
             trend={shoppingLoading ? "Loading..." : `${pendingShoppingItems} items pending`}
@@ -164,7 +176,7 @@ export function HomeTab() {
           transition={{ delay: 0.25 }}
         >
           <StatCard
-            icon={<TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />}
+            icon={<TrendingUp className="w-6 h-6 sm:w-7 sm:h-7" />}
             title="This Month"
             value={expenseLoading ? "..." : `₹${(expenseStats.totalAmount || 0).toFixed(0)}`}
             trend={expenseLoading ? "Loading..." : `${(expenseStats.change || 0) > 0 ? '+' : ''}${(expenseStats.change || 0)}% vs last month`}
@@ -398,14 +410,14 @@ function StatCard({
 
   return (
     <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl hover:shadow-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all shadow-lg overflow-hidden">
-      <CardContent className="p-2 sm:p-4">
-        <div className={`inline-flex p-1 sm:p-2 rounded-lg bg-gradient-to-br ${colorClasses[color]} shadow-md mb-1.5 sm:mb-2`}>
+      <CardContent className="p-4 sm:p-5 md:p-6">
+        <div className={`inline-flex p-2 sm:p-3 md:p-4 rounded-xl bg-gradient-to-br ${colorClasses[color]} shadow-md mb-3 sm:mb-4`}>
           <div className="text-white">{icon}</div>
         </div>
-        <div className="space-y-0.5">
-          <p className="text-[9px] sm:text-xs text-gray-600 dark:text-gray-400 truncate font-medium">{title}</p>
-          <p className="text-sm sm:text-xl font-bold truncate text-gray-900 dark:text-gray-100">{value}</p>
-          <p className="text-[8px] sm:text-[10px] text-gray-600 dark:text-gray-400 truncate leading-tight">{trend}</p>
+        <div className="space-y-1 sm:space-y-2">
+          <p className="text-mobile-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 truncate font-medium">{title}</p>
+          <p className="text-mobile-lg sm:text-xl md:text-2xl font-bold truncate text-gray-900 dark:text-gray-100">{value}</p>
+          <p className="text-mobile-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 truncate leading-relaxed">{trend}</p>
         </div>
       </CardContent>
     </Card>

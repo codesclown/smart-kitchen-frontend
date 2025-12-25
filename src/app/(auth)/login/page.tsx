@@ -199,13 +199,13 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full h-10 sm:h-12 text-sm sm:text-base bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white font-medium rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
+                className="w-full"
                 disabled={loading || !formData.email || !formData.password}
               >
                 {loading ? (
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span className="text-xs sm:text-sm">Signing in...</span>
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Signing in...</span>
                   </div>
                 ) : (
                   'Sign In'

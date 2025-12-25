@@ -17,6 +17,7 @@ import {
   Droplets,
   FlagOff,
   Search,
+  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -124,7 +125,7 @@ export function ShoppingTab() {
           <Button 
             variant="outline" 
             size="sm" 
-            className="mt-3 h-8 sm:h-10 text-[10px] sm:text-sm"
+            className="mt-3 h-7 text-xs sm:text-sm"
             onClick={() => window.location.reload()}
           >
             Try Again
@@ -241,9 +242,10 @@ export function ShoppingTab() {
     },
   ];
 
-  const filteredItems = (items as ShoppingListItem[]).filter((item: ShoppingListItem) =>
-    item.name.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredItems = (items as ShoppingListItem[]).filter((item: ShoppingListItem) => {
+    if (!query.trim()) return true; // Show all items if no search query
+    return item.name.toLowerCase().includes(query.toLowerCase().trim());
+  });
 
   return (
     <motion.div
@@ -267,40 +269,51 @@ export function ShoppingTab() {
           </p>
         </div>
 
-        <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto justify-end">
+        <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
           {/* Filter input */}
           <div className="relative flex-1 sm:w-64">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none z-10" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               type="text"
-              placeholder="Filter..."
-              className="mobile-input w-full pl-8 sm:pl-9 pr-2.5 sm:pr-3 bg-muted/50 border-muted-foreground/20 
-                focus:bg-background focus:border-primary/50 focus:ring-1 focus:ring-primary/20"
+              placeholder="Filter items..."
+              className="w-full h-9 pl-10 pr-10 rounded-xl border border-input bg-background/50 backdrop-blur-sm text-sm
+                placeholder:text-muted-foreground/60
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50
+                focus-visible:border-emerald-500/50 focus-visible:bg-background
+                transition-all duration-200 shadow-sm hover:shadow-md
+                text-foreground"
             />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground hover:text-foreground transition-colors z-10"
+                aria-label="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
 
           {/* Schedule button */}
           <Button
             variant="outline"
             size="sm"
-            className="mobile-btn-sm shrink-0 border-muted-foreground/20 bg-muted/50 text-foreground
-              hover:bg-muted hover:border-muted-foreground/30"
             onClick={() => {
               haptic.light();
               setIsScheduleOpen(true);
             }}
           >
             <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span className="hidden sm:inline">Schedule</span>
+            <span className="hidden sm:inline ml-1.5 sm:ml-2">Schedule</span>
           </Button>
 
           {/* Voice Input button */}
           <Button
             variant="outline"
             size="sm"
-            className="mobile-btn-sm shrink-0 border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400
+            className="border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400
               hover:bg-purple-500/20 hover:border-purple-500/30"
             onClick={() => {
               haptic.light();
@@ -308,14 +321,14 @@ export function ShoppingTab() {
             }}
           >
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span className="hidden sm:inline">Voice</span>
+            <span className="hidden sm:inline ml-1.5 sm:ml-2">Voice</span>
           </Button>
 
           {/* Auto Generate button */}
           <Button
             variant="outline"
             size="sm"
-            className="mobile-btn-sm shrink-0 border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
+            className="border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
               hover:bg-emerald-500/20 hover:border-emerald-500/30"
             onClick={handleAutoGenerate}
             disabled={autoGenerating}
@@ -325,41 +338,40 @@ export function ShoppingTab() {
             ) : (
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
             )}
-            <span className="hidden sm:inline">Auto</span>
+            <span className="hidden sm:inline ml-1.5 sm:ml-2">Auto</span>
           </Button>
 
           {/* New List button */}
           <Button
             size="sm"
-            className="mobile-btn-sm shrink-0 bg-[#6366F1] hover:bg-[#4F46E5] text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]"
             onClick={() => {
               haptic.medium();
               setIsNewListOpen(true);
             }}
           >
             <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span className="hidden sm:inline">New List</span>
+            <span className="hidden sm:inline ml-1.5 sm:ml-2">New List</span>
           </Button>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-3 gap-3 sm:gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="mobile-card sm:card-premium hover-lift overflow-hidden">
-            <CardContent className="p-2.5 sm:p-5">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+            <CardContent className="p-4">
               <div className="flex flex-col items-center text-center">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                  <Package className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                <div className="w-10 h-10 mb-3 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                  <Package className="w-5 h-5 text-white" />
                 </div>
-                <p className="text-[10px] sm:text-sm text-muted-foreground mb-0.5 sm:mb-1 font-medium">
+                <p className="text-xs text-muted-foreground mb-1 font-medium">
                   Total Items
                 </p>
-                <p className="text-lg md:text-2xl lg:text-3xl mobile-text-lg font-bold">{items.length}</p>
+                <p className="text-2xl font-bold">{items.length}</p>
               </div>
             </CardContent>
           </Card>
@@ -370,16 +382,16 @@ export function ShoppingTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          <Card className="mobile-card sm:card-premium hover-lift overflow-hidden">
-            <CardContent className="p-2.5 sm:p-5">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+            <CardContent className="p-4">
               <div className="flex flex-col items-center text-center">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
-                  <Check className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                <div className="w-10 h-10 mb-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                  <Check className="w-5 h-5 text-white" />
                 </div>
-                <p className="text-[10px] sm:text-sm text-muted-foreground mb-0.5 sm:mb-1 font-medium">
+                <p className="text-xs text-muted-foreground mb-1 font-medium">
                   Completed
                 </p>
-                <p className="text-lg md:text-2xl lg:text-3xl mobile-text-lg font-bold text-emerald-600 dark:text-emerald-400">
+                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                   {completedCount}
                 </p>
               </div>
@@ -392,16 +404,16 @@ export function ShoppingTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="mobile-card sm:card-premium hover-lift overflow-hidden">
-            <CardContent className="p-2.5 sm:p-5">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+            <CardContent className="p-4">
               <div className="flex flex-col items-center text-center">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                  <ListChecks className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                <div className="w-10 h-10 mb-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                  <ListChecks className="w-5 h-5 text-white" />
                 </div>
-                <p className="text-[10px] sm:text-sm text-muted-foreground mb-0.5 sm:mb-1 font-medium">
+                <p className="text-xs text-muted-foreground mb-1 font-medium">
                   Remaining
                 </p>
-                <p className="text-lg md:text-2xl lg:text-3xl mobile-text-lg font-bold text-blue-600 dark:text-blue-400">
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                   {remainingItems}
                 </p>
               </div>
@@ -415,15 +427,15 @@ export function ShoppingTab() {
         {/* Active Shopping List */}
         <div className="lg:col-span-2 space-y-4">
           {/* List Tab Switcher */}
-          <Card className="mobile-card sm:card-premium">
-            <CardContent className="p-2.5 sm:p-4">
-              <div className="flex flex-col gap-1.5 sm:flex-row bg-muted/50 rounded-xl sm:rounded-2xl p-0.5 sm:p-1.5 mb-3 sm:mb-4">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg">
+            <CardContent className="p-4">
+              <div className="flex bg-muted/50 rounded-xl p-2 mb-4 w-full gap-2">
                 {[
                   { id: "weekly" as TabId, label: "Weekly", icon: "🛒" },
                   { id: "festival" as TabId, label: "Festival", icon: "🪔" },
                   {
                     id: "kitchen" as TabId,
-                    label: "Kitchen Needs",
+                    label: "Kitchen",
                     icon: "🔧",
                   },
                 ].map((tab) => {
@@ -435,25 +447,27 @@ export function ShoppingTab() {
                     <Button
                       key={tab.id}
                       variant="ghost"
+                      size="sm"
                       data-active={isActive}
                       className={[
-                        "flex-1 inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl",
-                        "h-8 sm:h-11 text-[10px] sm:text-sm font-medium",
-                        "transition-all haptic-light",
-                        // active state: inner gradient pill, no outer border
-                        "data-[active=true]:bg-gradient-to-r data-[active=true]:from-indigo-500 data-[active=true]:to-purple-600",
-                        "data-[active=true]:text-white data-[active=false]:text-muted-foreground",
-                        "data-[active=true]:shadow-lg data-[active=true]:shadow-indigo-500/30",
+                        "flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg",
+                        "h-9 sm:h-10 text-xs sm:text-sm font-medium transition-all",
+                        "px-3 sm:px-4 min-w-0",
+                        isActive
+                          ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/30"
+                          : "text-muted-foreground hover:text-foreground hover:bg-white/50 dark:hover:bg-slate-800/50"
                       ].join(" ")}
                       onClick={() => {
                         haptic.selection();
                         setActiveTab(tab.id);
                       }}
                     >
-                      <span className="text-sm sm:text-lg">{tab.icon}</span>
-                      <span className="truncate text-[9px] sm:text-sm">{tab.label}</span>
+                      <span className="text-sm sm:text-base shrink-0">{tab.icon}</span>
+                      <span className="font-medium whitespace-nowrap">
+                        {tab.label}
+                      </span>
                       {isFestivalSelected && tab.id === "festival" && (
-                        <span className="hidden xs:inline-flex ml-1 text-[10px] px-2 py-0.5 rounded-full bg-white/15">
+                        <span className="hidden md:inline-flex ml-1 text-[10px] px-1.5 py-0.5 rounded-full bg-white/15 whitespace-nowrap">
                           {selectedTemplate}
                         </span>
                       )}
@@ -463,13 +477,13 @@ export function ShoppingTab() {
               </div>
 
               {/* Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                 <div>
-                  <h3 className="font-bold text-sm md:text-base lg:text-lg mobile-text-sm flex items-center gap-1.5 sm:gap-2">
-                    <div className="p-1 sm:p-1.5 bg-indigo-100 dark:bg-indigo-900/30 rounded-md sm:rounded-lg">
-                      <ListChecks className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-600 dark:text-indigo-400" />
+                  <h3 className="font-bold text-lg flex items-center gap-2">
+                    <div className="p-1.5 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
+                      <ListChecks className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <span className="text-xs sm:text-lg">
+                    <span>
                       {activeTab === "weekly"
                         ? currentListName
                         : activeTab === "festival"
@@ -477,21 +491,21 @@ export function ShoppingTab() {
                           : "Kitchen Essentials"}
                     </span>
                   </h3>
-                  <p className="text-[10px] sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">
+                  <p className="text-sm text-muted-foreground mt-1">
                     {completedCount} of {items.length} items checked
                     {activeTab === "festival" && selectedTemplate && (
-                      <span className="ml-1 sm:ml-2 inline-flex items-center gap-1 text-[9px] sm:text-[11px] text-orange-400">
+                      <span className="ml-2 inline-flex items-center gap-1 text-xs text-orange-400">
                         • Using {selectedTemplate} template
                       </span>
                     )}
                     {activeTab === "kitchen" && (
-                      <span className="ml-1 sm:ml-2 inline-flex items-center gap-1 text-[9px] sm:text-[11px] text-red-400">
+                      <span className="ml-2 inline-flex items-center gap-1 text-xs text-red-400">
                         • Viewing Kitchen Alerts
                       </span>
                     )}
                   </p>
                 </div>
-                <Badge className="bg-indigo-100 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-400 border-0 font-semibold text-[10px] sm:text-xs px-1.5 py-0.5">
+                <Badge className="bg-indigo-100 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-400 border-0 font-semibold text-xs px-2 py-1">
                   {Math.round(progress)}% Complete
                 </Badge>
               </div>
@@ -512,6 +526,11 @@ export function ShoppingTab() {
 
               {/* Shopping Items (filtered) */}
               <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 max-h-80 sm:max-h-96 overflow-y-auto">
+                {query && (
+                  <div className="text-xs text-muted-foreground mb-2 px-2">
+                    {filteredItems.length} of {items.length} items shown
+                  </div>
+                )}
                 <AnimatePresence mode="popLayout">
                   {filteredItems.map((item, index) => (
                     <motion.div
@@ -556,19 +575,36 @@ export function ShoppingTab() {
                         variant="ghost"
                         size="sm"
                         onClick={() => handleDeleteItem(item.id)}
-                        className="shrink-0 opacity-0 group-hover:opacity-100 transition-all text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 w-6 h-6 sm:w-8 sm:h-8 p-0"
+                        className="shrink-0 opacity-0 group-hover:opacity-100 transition-all text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 w-6 h-6 sm:w-7 sm:h-7 p-0"
                       >
-                        <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <Trash2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       </Button>
                     </motion.div>
                   ))}
-                  {filteredItems.length === 0 && (
+                  {filteredItems.length === 0 && query && (
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="text-xs sm:text-sm text-muted-foreground text-center py-4"
+                      className="text-xs sm:text-sm text-muted-foreground text-center py-8 px-4"
                     >
-                      No items match this search.
+                      <Search className="w-8 h-8 mx-auto mb-2 text-muted-foreground/50" />
+                      <p className="font-medium">No items found</p>
+                      <p className="text-xs text-muted-foreground/70 mt-1">
+                        Try searching for "{query}" or clear the filter
+                      </p>
+                    </motion.div>
+                  )}
+                  {filteredItems.length === 0 && !query && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-xs sm:text-sm text-muted-foreground text-center py-8 px-4"
+                    >
+                      <Package className="w-8 h-8 mx-auto mb-2 text-muted-foreground/50" />
+                      <p className="font-medium">No items in this list</p>
+                      <p className="text-xs text-muted-foreground/70 mt-1">
+                        Add some items to get started
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -576,14 +612,14 @@ export function ShoppingTab() {
 
               <Button
                 variant="outline"
-                className="mobile-btn w-full text-muted-foreground border-dashed border-2 hover:border-solid hover:bg-muted/50 hover:text-foreground transition-all"
+                className="w-full text-muted-foreground border-dashed border-2 hover:border-solid hover:bg-muted/50 hover:text-foreground transition-all h-8 text-xs sm:text-sm"
                 onClick={() => {
                   haptic.light();
                   setIsAddItemOpen(true);
                 }}
               >
-                <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                <span className="text-xs sm:text-sm">Add new item to list</span>
+                <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5" />
+                <span>Add new item to list</span>
               </Button>
             </CardContent>
           </Card>
@@ -611,11 +647,11 @@ export function ShoppingTab() {
                 <Button
                   size="sm"
                   disabled={completedCount === 0}
-                  className="mobile-btn w-full bg-white text-emerald-600 hover:bg-emerald-50 disabled:opacity-50 disabled:cursor-not-allowed font-semibold shadow-xl group"
+                  className="w-full bg-white text-emerald-600 hover:bg-emerald-50 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-xl group h-8 text-xs sm:text-sm"
                 >
-                  <Check className="w-3 h-3 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
-                  <span className="text-xs sm:text-base">Mark as Purchased ({completedCount})</span>
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform" />
+                  <Check className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5" />
+                  <span>Mark as Purchased ({completedCount})</span>
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
           </div>
