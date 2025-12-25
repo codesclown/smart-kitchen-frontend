@@ -206,7 +206,7 @@ export default function UnitConverterPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing page-container page-padding mobile-bottom-safe"
+      className="section-spacing"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">

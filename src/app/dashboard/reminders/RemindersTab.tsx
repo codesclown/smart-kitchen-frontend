@@ -73,7 +73,7 @@ export function RemindersTab() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="space-y-4 sm:space-y-6"
+      className="section-spacing"
     >
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4">
@@ -104,7 +104,7 @@ export function RemindersTab() {
 
       {/* Filters */}
       <Card className="card-premium">
-        <CardContent className="p-2.5 sm:p-4 flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center justify-between">
+        <CardContent className="p-3 sm:p-4 flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center justify-between">
           <div className="flex items-center gap-1.5 sm:gap-2">
             <div className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-indigo-100 dark:bg-indigo-900/40">
               <Filter className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-600 dark:text-indigo-300" />
@@ -149,7 +149,7 @@ export function RemindersTab() {
             {reminders.length} reminders
           </Badge>
         </CardHeader>
-        <CardContent className="space-y-1.5 sm:space-y-2 pt-0">
+        <CardContent className="space-y-2 sm:space-y-3 pt-0">
           <AnimatePresence initial={false}>
             {reminders.map((rem) => (
               <motion.div

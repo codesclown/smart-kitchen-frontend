@@ -137,7 +137,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           className="flex-1 overflow-y-auto scrollbar-hide relative"
           onScroll={handleScroll}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 pb-24 sm:pb-8">
+          <div className="page-padding page-spacing section-spacing main-content mobile-bottom-safe dashboard-content">
 
             {/* BREADCRUMB */}
             <motion.div

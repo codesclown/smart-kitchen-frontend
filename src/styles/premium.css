@@ -79,23 +79,23 @@
   }
   
   .mobile-form {
-    @apply space-y-5;
+    @apply space-y-4 sm:space-y-5 md:space-y-6;
   }
   
   .mobile-form-grid {
-    @apply grid grid-cols-1 gap-5;
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6;
   }
   
   .mobile-form-row {
-    @apply flex flex-col gap-3;
+    @apply flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5;
   }
   
   .mobile-button-group {
-    @apply flex flex-col gap-4 w-full;
+    @apply flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5;
   }
   
   .mobile-button-row {
-    @apply flex gap-4 w-full;
+    @apply flex gap-2 sm:gap-3 md:gap-4;
   }
   
   .mobile-nav-item {
@@ -113,19 +113,19 @@
   }
   
   .mobile-spacing-tight {
-    @apply space-y-3;
+    @apply space-y-3 sm:space-y-4 md:space-y-5;
   }
   
   .mobile-spacing-normal {
-    @apply space-y-4;
+    @apply space-y-4 sm:space-y-6 md:space-y-8;
   }
   
   .mobile-spacing-relaxed {
-    @apply space-y-5;
+    @apply space-y-5 sm:space-y-6 md:space-y-8;
   }
   
   .mobile-spacing-loose {
-    @apply space-y-8;
+    @apply space-y-6 sm:space-y-8 md:space-y-10;
   }
 }
 

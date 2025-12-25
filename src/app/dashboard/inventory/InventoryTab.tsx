@@ -420,7 +420,7 @@ export function InventoryTab() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing page-padding"
+      className="section-spacing"
     >
       {/* Header */}
       <div className="flex flex-col gap-3 sm:gap-4">
@@ -506,7 +506,7 @@ export function InventoryTab() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

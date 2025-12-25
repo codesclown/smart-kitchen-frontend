@@ -86,7 +86,7 @@ export function HomeTab() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="space-y-6 sm:space-y-7 md:space-y-8 p-5 sm:p-6 md:p-8"
+      className="section-spacing"
     >
       {/* Welcome Banner */}
       <div className="w-full overflow-hidden relative rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 backdrop-blur-xl">
@@ -190,7 +190,7 @@ export function HomeTab() {
         <div className="flex items-center justify-between mb-2 sm:mb-4">
           <h2 className="text-sm md:text-lg lg:text-xl mobile-text-sm font-bold">Quick Actions</h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
           <QuickActionCard
             icon={<Camera className="w-5 h-5 sm:w-6 sm:h-6" />}
             title="Scan Item"

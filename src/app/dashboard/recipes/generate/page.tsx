@@ -270,7 +270,7 @@ export default function GenerateRecipePage() {
           </div>
         </div>
 
-        <div className="page-padding mobile-bottom-safe section-spacing">
+        <div className="section-spacing">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             {/* Recipe Details */}
             <div className="lg:col-span-2 section-spacing">

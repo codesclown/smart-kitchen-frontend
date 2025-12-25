@@ -175,7 +175,7 @@ export default function NutritionPage() {
 
   if (loading) {
     return (
-      <div className="section-spacing page-container page-padding mobile-bottom-safe">
+      <div className="section-spacing">
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
         </div>
@@ -185,7 +185,7 @@ export default function NutritionPage() {
 
   if (error) {
     return (
-      <div className="section-spacing page-container page-padding mobile-bottom-safe">
+      <div className="section-spacing">
         <div className="text-center text-red-500">
           Error loading nutrition data: {error.message}
         </div>
@@ -206,7 +206,7 @@ export default function NutritionPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing page-container page-padding mobile-bottom-safe"
+      className="section-spacing"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">

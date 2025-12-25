@@ -38,7 +38,7 @@ export function FiltersDrawer({
 
   return (
     <Drawer open={open} onOpenChange={onClose}>
-      <DrawerContent className="p-3 sm:p-4 space-y-4 sm:space-y-6">
+      <DrawerContent className="p-4 sm:p-5 space-y-4 sm:space-y-6">
         <DrawerHeader>
           <h2 className="text-lg sm:text-xl font-bold">Filters</h2>
           <p className="text-xs sm:text-sm text-muted-foreground">
@@ -47,8 +47,8 @@ export function FiltersDrawer({
         </DrawerHeader>
 
         {/* Quick Toggles */}
-        <div className="space-y-2 sm:space-y-3">
-          <div className="flex gap-1.5 sm:gap-2 flex-wrap">
+        <div className="space-y-3">
+          <div className="flex gap-2 flex-wrap">
             <Badge
               variant={filters.lowStock ? "default" : "outline"}
               className="cursor-pointer text-xs sm:text-sm px-2 py-1"

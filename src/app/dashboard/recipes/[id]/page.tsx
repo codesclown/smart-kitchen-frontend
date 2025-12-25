@@ -490,7 +490,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
       </div>
 
       {/* Premium Content Container */}
-      <div className="px-4 sm:px-6 mobile-bottom-safe space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6 max-w-4xl mx-auto">
         {/* Missing Ingredients Alert */}
         {missingIngredients.length > 0 && (
           <motion.div

@@ -150,7 +150,7 @@ export default function AddInventoryPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="space-y-6 mobile-container sm:max-w-2xl sm:mx-auto"
+      className="section-spacing sm:max-w-2xl sm:mx-auto"
     >
       {/* Header */}
       <div className="flex items-center gap-4">

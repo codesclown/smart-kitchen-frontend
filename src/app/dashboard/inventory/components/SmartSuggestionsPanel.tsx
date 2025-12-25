@@ -26,7 +26,7 @@ export function SmartSuggestionsPanel({
   if (!lowCount && !expiringCount && !recommendedCount) return null;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
       {/* Low stock */}
       <Card className="mobile-card sm:card-premium hover-lift border-0 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-background">
         <CardContent className="p-3 sm:p-4 flex items-center justify-between gap-2 sm:gap-3">

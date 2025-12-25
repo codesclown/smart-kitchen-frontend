@@ -303,7 +303,7 @@ export function RecipesTab() {
         </div>
       </div>
 
-      <div className="page-padding page-spacing section-spacing">
+      <div className="section-spacing">
         {/* Hero CTA */}
         <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.99 }}>
           <div className="w-full overflow-hidden relative bg-gradient-to-br from-orange-500 to-red-600 dark:from-orange-600 dark:to-red-700 rounded-xl shadow-xl cursor-pointer group">
