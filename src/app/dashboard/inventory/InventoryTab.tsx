@@ -423,33 +423,33 @@ export function InventoryTab() {
       className="section-spacing"
     >
       {/* Header */}
-      <div className="flex flex-col gap-3 sm:gap-4">
+      <div className="flex flex-col gap-4 sm:gap-5">
         {/* Title Section */}
         <div className="flex items-center justify-between">
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="p-1.5 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-                <Package className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-emerald-400" />
+            <div className="flex items-center gap-2 mb-2">
+              <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl">
+                <Package className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
-              <h2 className="text-sm sm:text-xl font-bold">Kitchen Inventory</h2>
+              <h2 className="text-mobile-xl sm:text-2xl font-bold">Kitchen Inventory</h2>
             </div>
-            <p className="text-[10px] sm:text-sm text-muted-foreground">
+            <p className="text-mobile-sm sm:text-base text-muted-foreground">
               Track your pantry items and expiry dates
             </p>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+        <div className="flex flex-col gap-3 sm:gap-4">
           {/* Import/Export Row */}
-          <div className="flex gap-1.5 sm:gap-2">
+          <div className="flex gap-2 sm:gap-3">
             <Button
               variant="outline"
               size="sm"
               onClick={handleExportJSON}
-              className="flex-1 sm:flex-none h-8 sm:h-10 text-[10px] sm:text-sm font-medium"
+              className="flex-1 sm:flex-none h-10 sm:h-11 text-mobile-sm sm:text-sm font-medium"
             >
-              <span className="mr-1 sm:mr-2">📤</span>
+              <span className="mr-2">📤</span>
               Export
             </Button>
             <Button
@@ -472,56 +472,56 @@ export function InventoryTab() {
                 };
                 input.click();
               }}
-              className="flex-1 sm:flex-none h-8 sm:h-10 text-[10px] sm:text-sm font-medium"
+              className="flex-1 sm:flex-none h-10 sm:h-11 text-mobile-sm sm:text-sm font-medium"
             >
-              <span className="mr-1 sm:mr-2">📥</span>
+              <span className="mr-2">📥</span>
               Import
             </Button>
-          </div>
-
-          {/* Main Actions Row */}
-          <div className="flex gap-1.5 sm:gap-2">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setFiltersOpen(true)}
-              className="flex-1 sm:flex-none h-8 sm:h-10 text-[10px] sm:text-sm font-medium"
+              className="flex-1 sm:flex-none h-10 sm:h-11 text-mobile-sm sm:text-sm font-medium"
             >
-              <span className="mr-1 sm:mr-2">🔍</span>
+              <span className="mr-2">🔍</span>
               Filters
             </Button>
+          </div>
+
+          {/* Main Actions Row */}
+          <div className="flex gap-2 sm:gap-3">
             <Button
               size="sm"
               onClick={() => {
                 haptic.light();
                 setIsAddDialogOpen(true);
               }}
-              className="flex-1 sm:flex-none h-10 sm:h-12"
+              className="flex-1 h-12 sm:h-14 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white shadow-lg"
             >
-              <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              Add Item
+              <Plus className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+              <span className="text-mobile-base sm:text-lg font-semibold">Add Item</span>
             </Button>
           </div>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
           <Card className="card-premium hover-lift overflow-hidden shadow-sm">
-            <CardContent className="p-2 sm:p-4">
+            <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 mb-1 sm:mb-2 rounded-lg bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md shadow-emerald-500/25">
-                  <Package className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md shadow-emerald-500/25">
+                  <Package className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
-                <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5 font-medium">
+                <p className="text-mobile-xs sm:text-sm text-muted-foreground mb-1 font-medium">
                   Total Items
                 </p>
-                <p className="text-sm sm:text-xl font-bold">{stats.total}</p>
+                <p className="text-mobile-xl sm:text-2xl font-bold">{stats.total}</p>
               </div>
             </CardContent>
           </Card>
@@ -533,15 +533,15 @@ export function InventoryTab() {
           transition={{ delay: 0.15 }}
         >
           <Card className="card-premium hover-lift overflow-hidden shadow-sm">
-            <CardContent className="p-2 sm:p-4">
+            <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 mb-1 sm:mb-2 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md shadow-amber-500/25">
-                  <TrendingUp className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md shadow-amber-500/25">
+                  <TrendingUp className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
-                <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5 font-medium">
+                <p className="text-mobile-xs sm:text-sm text-muted-foreground mb-1 font-medium">
                   Low Stock
                 </p>
-                <p className="text-sm sm:text-xl font-bold text-amber-600 dark:text-amber-400">
+                <p className="text-mobile-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400">
                   {stats.low}
                 </p>
               </div>
@@ -555,15 +555,15 @@ export function InventoryTab() {
           transition={{ delay: 0.2 }}
         >
           <Card className="card-premium hover-lift overflow-hidden shadow-sm">
-            <CardContent className="p-2 sm:p-4">
+            <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 mb-1 sm:mb-2 rounded-lg bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-md shadow-red-500/25">
-                  <AlertCircle className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-md shadow-red-500/25">
+                  <AlertCircle className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
-                <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5 font-medium">
+                <p className="text-mobile-xs sm:text-sm text-muted-foreground mb-1 font-medium">
                   Expiring
                 </p>
-                <p className="text-sm sm:text-xl font-bold text-red-600 dark:text-red-400">
+                <p className="text-mobile-xl sm:text-2xl font-bold text-red-600 dark:text-red-400">
                   {stats.expiring}
                 </p>
               </div>
@@ -577,15 +577,15 @@ export function InventoryTab() {
           transition={{ delay: 0.25 }}
         >
           <Card className="card-premium hover-lift overflow-hidden shadow-sm">
-            <CardContent className="p-2 sm:p-4">
+            <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 mb-1 sm:mb-2 rounded-lg bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center shadow-md shadow-blue-500/25 text-sm sm:text-xl">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center shadow-md shadow-blue-500/25 text-2xl sm:text-3xl">
                   🧊
                 </div>
-                <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5 font-medium">
+                <p className="text-mobile-xs sm:text-sm text-muted-foreground mb-1 font-medium">
                   In Fridge
                 </p>
-                <p className="text-sm sm:text-xl font-bold text-blue-600 dark:text-blue-400">
+                <p className="text-mobile-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400">
                   {stats.fridge}
                 </p>
               </div>
@@ -818,7 +818,7 @@ export function InventoryTab() {
 
         {/* Category Pills */}
         <div className="relative">
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide">
             {categories.map((cat) => (
               <Button
                 key={cat}
@@ -827,15 +827,15 @@ export function InventoryTab() {
                 size="sm"
                 className={
                   selectedCategory === cat
-                    ? "mobile-btn bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-lg shadow-emerald-500/30 shrink-0 h-9 px-4 text-sm font-medium"
-                    : "mobile-btn shrink-0 h-9 px-4 text-sm border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    ? "bg-gradient-to-r from-emerald-500 to-green-600 text-white border-0 shadow-lg shrink-0 h-10 sm:h-11 px-4 sm:px-5 text-mobile-sm sm:text-base font-semibold"
+                    : "shrink-0 h-10 sm:h-11 px-4 sm:px-5 text-mobile-sm sm:text-base border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
                 }
               >
                 {cat}
               </Button>
             ))}
           </div>
-          <div className="absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none sm:hidden" />
+          <div className="absolute right-0 top-0 bottom-3 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none sm:hidden" />
         </div>
       </div>
 

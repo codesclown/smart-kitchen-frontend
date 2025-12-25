@@ -241,28 +241,28 @@ export function RecipesTab() {
     >
       {/* Mobile Header */}
       <div className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
-        <div className="dialog-padding dialog-spacing">
-          <div className="flex flex-col gap-3 sm:gap-4">
+        <div className="px-4 sm:px-6 py-4 sm:py-5">
+          <div className="flex flex-col gap-4 sm:gap-5">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <h2 className="text-sm sm:text-xl font-bold tracking-tight">AI Recipe Assistant</h2>
-                <div className="p-1 sm:p-1.5 bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/40 dark:to-red-900/40 rounded-lg sm:rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <h2 className="text-mobile-xl sm:text-2xl font-bold tracking-tight">AI Recipe Assistant</h2>
+                <div className="p-2 sm:p-3 bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/40 dark:to-red-900/40 rounded-xl shadow-sm">
                   {aiLoading ? (
-                    <div className="w-3 h-3 sm:w-5 sm:h-5 border border-orange-600 dark:border-orange-400 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 border border-orange-600 dark:border-orange-400 border-t-transparent rounded-full animate-spin" />
                   ) : (
-                    <Sparkles className="w-3 h-3 sm:w-5 sm:h-5 text-orange-600 dark:text-orange-400" />
+                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-400" />
                   )}
                 </div>
               </div>
-              <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+              <div className="flex items-center gap-2 text-mobile-sm sm:text-base">
                 <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span className="font-medium">{enhancedRecipes.filter((r: Recipe) => r.available).length}</span>
                 </div>
                 <span className="text-muted-foreground">ready</span>
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-mobile-sm sm:text-base text-muted-foreground leading-relaxed">
               {aiLoading 
                 ? "Generating personalized recipes from your inventory..." 
                 : "Discover personalized recipes based on your available ingredients"
@@ -270,15 +270,15 @@ export function RecipesTab() {
             </p>
             
             {/* Mobile Search */}
-            <div className="flex gap-2">
+            <div className="flex gap-3 sm:gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   type="text"
                   placeholder="Search recipes or ingredients..."
-                  className="w-full h-9 sm:h-11 pl-9 sm:pl-10 pr-4 rounded-lg sm:rounded-xl border border-input bg-background/50 backdrop-blur-sm text-xs sm:text-sm
+                  className="w-full h-12 sm:h-14 pl-12 sm:pl-14 pr-4 rounded-xl border border-input bg-background/50 backdrop-blur-sm text-mobile-base sm:text-lg font-medium
                              placeholder:text-muted-foreground/60
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50
                              focus-visible:border-orange-500/50 focus-visible:bg-background
@@ -293,10 +293,10 @@ export function RecipesTab() {
                   setRefreshKey(prev => prev + 1);
                 }}
                 disabled={aiLoading}
-                className="h-9 sm:h-11 px-3 shrink-0 border-border/60 hover:bg-muted/60 transition-colors"
+                className="h-12 sm:h-14 px-4 shrink-0 border-border/60 hover:bg-muted/60 transition-colors"
                 title="Refresh AI recipes"
               >
-                <RefreshCw className={`w-3 h-3 sm:w-4 sm:h-4 ${aiLoading ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`w-4 h-4 sm:w-5 sm:h-5 ${aiLoading ? 'animate-spin' : ''}`} />
               </Button>
             </div>
           </div>
@@ -307,34 +307,34 @@ export function RecipesTab() {
         {/* Hero CTA */}
         <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.99 }}>
           <div className="w-full overflow-hidden relative bg-gradient-to-br from-orange-500 to-red-600 dark:from-orange-600 dark:to-red-700 rounded-xl shadow-xl cursor-pointer group">
-            <div className="relative p-4 sm:p-6">
+            <div className="relative p-5 sm:p-6">
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                 <div className="shrink-0">
-                  <div className="p-3 sm:p-4 bg-white/15 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl">
-                    <ChefHat className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
+                  <div className="p-4 sm:p-5 bg-white/15 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl">
+                    <ChefHat className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                   </div>
                 </div>
-                <div className="flex-1 text-center sm:text-left text-white space-y-2 sm:space-y-3">
-                  <h3 className="text-lg sm:text-2xl font-bold">
+                <div className="flex-1 text-center sm:text-left text-white space-y-3 sm:space-y-4">
+                  <h3 className="text-mobile-xl sm:text-2xl font-bold">
                     What can I cook today?
                   </h3>
-                  <p className="text-orange-50 text-xs sm:text-sm max-w-lg mx-auto sm:mx-0">
+                  <p className="text-orange-50 text-mobile-sm sm:text-base max-w-lg mx-auto sm:mx-0">
                     Get personalized recipe suggestions based on ingredients in your kitchen.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-stretch sm:items-center">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
                     <Button
                       size="sm"
                       onClick={() => {
                         haptic.medium();
                         router.push("/dashboard/recipes/generate");
                       }}
-                      className="w-full sm:w-auto bg-white text-orange-600 hover:bg-orange-50 font-semibold shadow-xl group/cta text-xs sm:text-sm"
+                      className="w-full sm:w-auto bg-white text-orange-600 hover:bg-orange-50 font-semibold shadow-xl group/cta text-mobile-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8"
                     >
                       Get suggestions
-                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover/cta:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover/cta:translate-x-1 transition-transform" />
                     </Button>
-                    <div className="flex items-center justify-center gap-1 text-[10px] sm:text-xs text-orange-100">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-300 animate-pulse" />
+                    <div className="flex items-center justify-center gap-2 text-mobile-xs sm:text-sm text-orange-100">
+                      <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
                       Uses your live inventory
                     </div>
                   </div>

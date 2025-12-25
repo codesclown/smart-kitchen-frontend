@@ -196,7 +196,7 @@ export default function AddExpensePage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing page-padding max-w-2xl mx-auto"
+      className="section-spacing px-3 sm:px-4 max-w-2xl mx-auto"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">
@@ -253,14 +253,14 @@ export default function AddExpensePage() {
 
       {/* Manual Entry Form */}
       <Card className="card-premium">
-        <CardHeader className="pb-3 sm:pb-4">
+        <CardHeader className="pb-2 sm:pb-3 px-3 sm:px-4 pt-3 sm:pt-4">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base">
             <DollarSign className="w-4 h-4 sm:w-5 sm:h-5" />
             Expense Details
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="section-spacing">
+        <CardContent className="p-3 sm:p-4">
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             {/* Amount & Type */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
@@ -454,8 +454,8 @@ export default function AddExpensePage() {
 
       {/* Quick Actions */}
       <Card className="card-premium">
-        <CardContent className="p-4 sm:p-5">
-          <h4 className="font-semibold mb-3 sm:mb-4 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm">
+        <CardContent className="p-3 sm:p-4">
+          <h4 className="font-semibold mb-2 sm:mb-3 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm">
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
             Quick Add Common Expenses
           </h4>

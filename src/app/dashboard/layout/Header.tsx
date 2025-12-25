@@ -30,7 +30,7 @@ export function Header() {
   if (!mounted) {
     return (
       <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200/60 dark:border-slate-700/60 shadow-lg">
-        <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center px-4 sm:px-6 lg:px-8">
+        <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center px-3 sm:px-4 md:px-6">
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="p-2 sm:p-2.5 bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 rounded-2xl shadow-xl shadow-purple-500/30 hover:shadow-purple-500/40 transition-all">
               <ChefHat className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -67,7 +67,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200/60 dark:border-slate-700/60 shadow-lg">
-      <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center px-4 sm:px-6 lg:px-8">
+      <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center px-3 sm:px-4 md:px-6">
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="p-2 sm:p-2.5 bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 rounded-2xl shadow-xl shadow-purple-500/30 hover:shadow-purple-500/40 transition-all cursor-pointer hover:scale-105 active:scale-95">

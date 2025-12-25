@@ -89,7 +89,7 @@ export function HomeTab() {
       className="section-spacing"
     >
       {/* Welcome Banner */}
-      <div className="w-full overflow-hidden relative rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 backdrop-blur-xl">
+      <div className="w-full overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 backdrop-blur-xl">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-600 dark:from-purple-600 dark:via-pink-600 dark:to-blue-700" />
         
         {/* Decorative elements */}
@@ -98,10 +98,10 @@ export function HomeTab() {
           <div className="absolute top-0 -right-4 w-72 h-72 bg-pink-300/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000" />
         </div>
         
-        <div className="relative p-6 sm:p-7 md:p-8">
-          <div className="flex items-center justify-between gap-5">
+        <div className="relative p-5 sm:p-7 md:p-8">
+          <div className="flex items-center justify-between gap-4 sm:gap-5">
             <div className="flex-1 min-w-0">
-              <h1 className="text-mobile-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-3 mobile-text-shadow">
+              <h1 className="text-mobile-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-3 mobile-text-shadow">
                 Welcome Back! 👋
               </h1>
               <p className="text-mobile-base sm:text-lg md:text-xl text-purple-100 leading-relaxed mobile-text-shadow">
@@ -116,10 +116,10 @@ export function HomeTab() {
                   haptic.light()
                   router.push('/dashboard/inventory/scan')
                 }}
-                className="bg-white/30 backdrop-blur-sm border-white/40 text-white hover:bg-white/40 shadow-xl hover:shadow-2xl"
+                className="bg-white/30 backdrop-blur-sm border-white/40 text-white hover:bg-white/40 shadow-xl hover:shadow-2xl h-12 sm:h-14 px-4 sm:px-6"
               >
-                <Camera className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span className="hidden sm:inline">Scan</span>
+                <Camera className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
+                <span className="text-mobile-sm sm:text-base font-semibold">Scan</span>
               </Button>
             </div>
           </div>
@@ -127,7 +127,7 @@ export function HomeTab() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -187,10 +187,10 @@ export function HomeTab() {
 
       {/* Quick Actions */}
       <div>
-        <div className="flex items-center justify-between mb-2 sm:mb-4">
-          <h2 className="text-sm md:text-lg lg:text-xl mobile-text-sm font-bold">Quick Actions</h2>
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <h2 className="text-mobile-lg sm:text-xl font-bold">Quick Actions</h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <QuickActionCard
             icon={<Camera className="w-5 h-5 sm:w-6 sm:h-6" />}
             title="Scan Item"

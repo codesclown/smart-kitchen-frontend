@@ -65,28 +65,30 @@ export function ExpensesTab() {
       className="section-spacing"
     >
       {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
-        <div>
-          <h2 className="text-sm sm:text-lg font-bold">Expense Tracker</h2>
-          <p className="text-[10px] sm:text-sm text-muted-foreground mt-0.5">
-            Track your kitchen spending & vendor prices
-          </p>
+      <div className="flex flex-col gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
+          <div className="flex-1">
+            <h2 className="text-mobile-lg sm:text-xl font-bold">Expense Tracker</h2>
+            <p className="text-mobile-xs sm:text-sm text-muted-foreground mt-0.5">
+              Track your kitchen spending & vendor prices
+            </p>
+          </div>
         </div>
 
-        <div className="flex gap-1.5 sm:gap-2 w-full sm:w-auto justify-end relative">
+        <div className="flex gap-2 sm:gap-3 w-full">
           {/* Custom period dropdown */}
-          <div className="relative">
+          <div className="relative flex-1 sm:flex-none">
             <button
               type="button"
               onClick={() => setOpenPeriod((p) => !p)}
-              className="inline-flex items-center justify-between gap-2 h-8 sm:h-10 px-2.5 sm:px-3 rounded-lg sm:rounded-xl
-                         border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-[10px] sm:text-sm text-foreground min-w-[8rem] sm:min-w-[9.5rem]
+              className="inline-flex items-center justify-between gap-2 h-10 sm:h-11 px-3 sm:px-4 rounded-xl
+                         border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-mobile-sm sm:text-sm text-foreground w-full sm:min-w-[9.5rem]
                          hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
             >
               <span className="truncate">{selectedPeriod}</span>
               <span className="inline-flex items-center justify-center">
                 <svg
-                  className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform ${openPeriod ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform ${openPeriod ? "rotate-180" : ""}`}
                   viewBox="0 0 20 20"
                   fill="none"
                 >
@@ -103,8 +105,8 @@ export function ExpensesTab() {
 
             {openPeriod && (
               <div
-                className="absolute right-0 mt-2 w-36 sm:w-44 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800
-                           shadow-lg z-20 overflow-hidden text-[10px] sm:text-sm"
+                className="absolute right-0 mt-2 w-full sm:w-44 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800
+                           shadow-lg z-20 overflow-hidden text-mobile-sm sm:text-sm"
               >
                 {periods.map((period) => (
                   <button
@@ -114,7 +116,7 @@ export function ExpensesTab() {
                       setSelectedPeriod(period)
                       setOpenPeriod(false)
                     }}
-                    className={`w-full px-2.5 sm:px-3 py-1.5 sm:py-2 text-left transition-colors ${
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-left transition-colors ${
                       selectedPeriod === period
                         ? "bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
                         : "text-muted-foreground hover:bg-gray-50 dark:hover:bg-gray-700"
@@ -129,13 +131,13 @@ export function ExpensesTab() {
 
           {/* Add Expense button */}
           <Button 
-            className="flex-1 sm:flex-none h-8 sm:h-10 px-3 sm:px-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg shadow-teal-500/30 text-[10px] sm:text-sm"
+            className="flex-1 sm:flex-none h-10 sm:h-11 px-4 sm:px-5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg shadow-teal-500/30 text-mobile-sm sm:text-sm font-semibold"
             onClick={() => {
               haptic.medium();
               router.push("/dashboard/expenses/add");
             }}
           >
-            <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <Plus className="w-4 h-4 mr-2" />
             <span className="hidden sm:inline">Add Expense</span>
             <span className="sm:hidden">Add</span>
           </Button>
@@ -143,48 +145,48 @@ export function ExpensesTab() {
       </div>
 
       {/* Stats Overview */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <Card className="card-premium hover-lift">
-          <CardContent className="p-2.5 sm:p-4 text-center">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md shadow-emerald-500/25">
-              <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          <CardContent className="p-3 sm:p-4 text-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md shadow-emerald-500/25">
+              <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5">Total Spent</p>
-            <p className="text-sm sm:text-xl font-bold">₹{totalExpenses.toLocaleString()}</p>
+            <p className="text-mobile-xs sm:text-xs text-muted-foreground mb-1">Total Spent</p>
+            <p className="text-mobile-lg sm:text-xl font-bold">₹{totalExpenses.toLocaleString()}</p>
           </CardContent>
         </Card>
 
         <Card className="card-premium hover-lift">
-          <CardContent className="p-2.5 sm:p-4 text-center">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md shadow-amber-500/25">
-              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          <CardContent className="p-3 sm:p-4 text-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md shadow-amber-500/25">
+              <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5">Ration</p>
-            <p className="text-sm sm:text-xl font-bold text-amber-600 dark:text-amber-400">
+            <p className="text-mobile-xs sm:text-xs text-muted-foreground mb-1">Ration</p>
+            <p className="text-mobile-lg sm:text-xl font-bold text-amber-600 dark:text-amber-400">
               ₹{rationExpenses.toLocaleString()}
             </p>
           </CardContent>
         </Card>
 
         <Card className="card-premium hover-lift">
-          <CardContent className="p-2.5 sm:p-4 text-center">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-md shadow-orange-500/25">
-              <ChefHat className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          <CardContent className="p-3 sm:p-4 text-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-md shadow-orange-500/25">
+              <ChefHat className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5">Food Orders</p>
-            <p className="text-sm sm:text-xl font-bold text-orange-600 dark:text-orange-400">
+            <p className="text-mobile-xs sm:text-xs text-muted-foreground mb-1">Food Orders</p>
+            <p className="text-mobile-lg sm:text-xl font-bold text-orange-600 dark:text-orange-400">
               ₹{foodOrderExpenses.toLocaleString()}
             </p>
           </CardContent>
         </Card>
 
         <Card className="card-premium hover-lift">
-          <CardContent className="p-2.5 sm:p-4 text-center">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center shadow-md shadow-blue-500/25">
-              <TrendingDown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          <CardContent className="p-3 sm:p-4 text-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center shadow-md shadow-blue-500/25">
+              <TrendingDown className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <p className="text-[9px] sm:text-xs text-muted-foreground mb-0.5">Avg Daily</p>
-            <p className="text-sm sm:text-xl font-bold text-blue-600 dark:text-blue-400">
+            <p className="text-mobile-xs sm:text-xs text-muted-foreground mb-1">Avg Daily</p>
+            <p className="text-mobile-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400">
               ₹{avgDailySpend.toFixed(0)}
             </p>
           </CardContent>
@@ -407,21 +409,21 @@ function VendorComparison({
   isCheapest?: boolean
 }) {
   return (
-    <div className="flex items-center justify-between p-2 sm:p-2.5 rounded-lg sm:rounded-xl hover:bg-muted/50 transition-colors group cursor-pointer">
-      <div className="flex items-center gap-2 sm:gap-2.5">
-        <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-muted to-muted/50 rounded-md sm:rounded-lg flex items-center justify-center text-sm sm:text-base">
+    <div className="flex items-center justify-between p-3 sm:p-4 rounded-xl hover:bg-muted/50 transition-colors group cursor-pointer">
+      <div className="flex items-center gap-3">
+        <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-muted to-muted/50 rounded-lg flex items-center justify-center text-lg sm:text-xl">
           🏪
         </div>
-        <span className="font-medium text-[10px] sm:text-sm">{vendor}</span>
+        <span className="font-medium text-mobile-sm sm:text-sm">{vendor}</span>
       </div>
       <div className="text-right">
-        <p className="font-bold text-[10px] sm:text-sm">₹{price}</p>
+        <p className="font-bold text-mobile-sm sm:text-sm">₹{price}</p>
         {isCheapest ? (
-          <Badge className="bg-emerald-100 text-emerald-700 text-[8px] sm:text-[9px] mt-0.5 dark:bg-emerald-950/40 dark:text-emerald-400">
+          <Badge className="bg-emerald-100 text-emerald-700 text-mobile-xs sm:text-xs mt-1 dark:bg-emerald-950/40 dark:text-emerald-400">
             Cheapest 🥇
           </Badge>
         ) : (
-          <span className="text-[8px] sm:text-[10px] text-muted-foreground">Avg price</span>
+          <span className="text-mobile-xs sm:text-xs text-muted-foreground">Avg price</span>
         )}
       </div>
     </div>

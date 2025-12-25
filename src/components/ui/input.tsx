@@ -9,9 +9,9 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       data-slot="input"
       className={cn(
         "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground",
-        "h-14 w-full min-w-0 rounded-2xl border border-gray-200/60 dark:border-slate-700/60",
-        "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-lg",
-        "px-5 py-4 text-mobile-base sm:text-lg md:text-xl font-medium tracking-wide",
+        "h-10 sm:h-11 w-full min-w-0 rounded-lg sm:rounded-xl border border-gray-200/60 dark:border-slate-700/60",
+        "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-sm sm:shadow-lg",
+        "px-3 sm:px-4 py-2 sm:py-3 text-mobile-sm sm:text-base md:text-lg font-medium tracking-wide",
         "transition-all duration-300 ease-out outline-none",
         "placeholder:text-slate-400 dark:placeholder:text-slate-500",
         "hover:border-gray-300/80 dark:hover:border-slate-600/80",
@@ -21,7 +21,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
         "aria-invalid:ring-destructive/30 dark:aria-invalid:ring-destructive/50 aria-invalid:border-destructive",
         "file:inline-flex file:h-8 file:border-0 file:bg-transparent file:text-mobile-sm file:font-semibold file:text-emerald-600",
-        "min-h-[56px]", // Ensure touch-friendly size
+        "min-h-[40px] sm:min-h-[44px]", // Ensure touch-friendly size
         className
       )}
       {...props}

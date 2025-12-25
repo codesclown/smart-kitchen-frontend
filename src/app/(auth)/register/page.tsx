@@ -90,10 +90,10 @@ export default function RegisterPage() {
           </motion.div>
           
           <div className="space-y-1 sm:space-y-2">
-            <h1 className="text-xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
               Create Account
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
               Join Smart Kitchen Manager and organize your kitchen
             </p>
           </div>
