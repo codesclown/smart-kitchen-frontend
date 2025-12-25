@@ -95,13 +95,13 @@ export default function ForgotPasswordPage() {
                 <Button
                   onClick={() => setIsSubmitted(false)}
                   variant="outline"
-                  className="w-full h-9 sm:h-10 text-xs sm:text-sm"
+                  className="w-full h-10 sm:h-11 md:h-10 text-sm sm:text-base md:text-sm rounded-lg sm:rounded-xl md:rounded-lg"
                 >
                   Try Different Email
                 </Button>
                 
                 <Link href="/login">
-                  <Button className="w-full h-9 sm:h-10 text-xs sm:text-sm bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700">
+                  <Button className="w-full h-10 sm:h-11 md:h-10 text-sm sm:text-base md:text-sm rounded-lg sm:rounded-xl md:rounded-lg">
                     Back to Sign In
                   </Button>
                 </Link>
@@ -164,7 +164,7 @@ export default function ForgotPasswordPage() {
                   Email Address
                 </Label>
                 <div className="relative group">
-                  <Mail className="absolute left-3 sm:left-4 top-1/2 h-4 w-4 sm:h-5 sm:w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors group-focus-within:text-emerald-500" />
+                  <Mail className="absolute left-3.5 sm:left-4 md:left-3.5 top-1/2 h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors group-focus-within:text-emerald-500" />
                   <Input
                     id="email"
                     name="email"
@@ -172,7 +172,7 @@ export default function ForgotPasswordPage() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 sm:pl-12 h-10 sm:h-12 text-sm sm:text-base border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg sm:rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200"
+                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200"
                     required
                   />
                 </div>
@@ -181,8 +181,7 @@ export default function ForgotPasswordPage() {
               {/* Submit Button */}
               <Button
                 type="submit"
-                size="lg"
-                className="w-full h-10 sm:h-12 text-sm sm:text-base bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white font-medium rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
+                className="w-full h-11 sm:h-12 md:h-11 text-sm sm:text-base md:text-sm font-medium rounded-lg sm:rounded-xl md:rounded-lg"
                 disabled={loading || !email}
               >
                 {loading ? (

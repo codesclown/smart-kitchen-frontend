@@ -120,7 +120,7 @@ export default function LoginPage() {
                   Email Address
                 </Label>
                 <div className="relative group">
-                  <Mail className="absolute left-3 sm:left-4 top-1/2 h-4 w-4 sm:h-5 sm:w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors group-focus-within:text-emerald-500" />
+                  <Mail className="absolute left-3.5 sm:left-4 md:left-3.5 top-1/2 h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors group-focus-within:text-emerald-500" />
                   <Input
                     id="email"
                     name="email"
@@ -128,7 +128,7 @@ export default function LoginPage() {
                     placeholder="Enter your email address"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`pl-10 sm:pl-12 h-10 sm:h-12 text-sm sm:text-base rounded-lg sm:rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 ${
+                    className={`!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 ${
                       emailError 
                         ? 'border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/20' 
                         : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700'
@@ -150,7 +150,7 @@ export default function LoginPage() {
                   Password
                 </Label>
                 <div className="relative group">
-                  <Lock className="absolute left-3 sm:left-4 top-1/2 h-4 w-4 sm:h-5 sm:w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors group-focus-within:text-emerald-500" />
+                  <Lock className="absolute left-3.5 sm:left-4 md:left-3.5 top-1/2 h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors group-focus-within:text-emerald-500" />
                   <Input
                     id="password"
                     name="password"
@@ -158,7 +158,7 @@ export default function LoginPage() {
                     placeholder="Enter your password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className={`pl-10 sm:pl-12 pr-10 sm:pr-12 h-10 sm:h-12 text-sm sm:text-base rounded-lg sm:rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 ${
+                    className={`!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 pr-11 sm:pr-12 md:pr-11 text-sm sm:text-base md:text-sm !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 ${
                       passwordError 
                         ? 'border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/20' 
                         : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700'
@@ -168,12 +168,12 @@ export default function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                    className="absolute right-3.5 sm:right-4 md:right-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                   >
                     {showPassword ? (
-                      <EyeOff className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <EyeOff className="h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4" />
                     ) : (
-                      <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <Eye className="h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4" />
                     )}
                   </button>
                 </div>
@@ -198,8 +198,7 @@ export default function LoginPage() {
               {/* Submit Button */}
               <Button
                 type="submit"
-                size="lg"
-                className="w-full"
+                className="w-full h-11 sm:h-12 md:h-11 text-sm sm:text-base md:text-sm font-medium rounded-lg sm:rounded-xl md:rounded-lg"
                 disabled={loading || !formData.email || !formData.password}
               >
                 {loading ? (
