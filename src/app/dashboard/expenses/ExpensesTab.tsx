@@ -129,7 +129,7 @@ export function ExpensesTab() {
 
           {/* Add Expense button */}
           <Button 
-            className="flex-1 sm:flex-none h-8 sm:h-10 px-3 sm:px-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white shadow-lg shadow-purple-500/30 text-[10px] sm:text-sm"
+            className="flex-1 sm:flex-none h-8 sm:h-10 px-3 sm:px-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg shadow-teal-500/30 text-[10px] sm:text-sm"
             onClick={() => {
               haptic.medium();
               router.push("/dashboard/expenses/add");
