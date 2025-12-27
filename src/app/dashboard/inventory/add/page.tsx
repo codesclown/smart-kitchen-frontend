@@ -245,7 +245,7 @@ export default function AddInventoryPage() {
       )}
 
       {/* Form */}
-      <Card className="card-premium">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Package className="w-5 h-5" />

@@ -179,7 +179,7 @@ export default function ReportsPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center py-12"
         >
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 max-w-md mx-auto">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl max-w-md mx-auto">
             <CardContent className="p-6">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
                 <BarChart3 className="w-8 h-8 text-white" />
@@ -198,7 +198,7 @@ export default function ReportsPage() {
       )}
 
       {/* Export Options - Always show */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="card-header-padding">
           <CardTitle className="text-sm sm:text-lg">Export Report</CardTitle>
         </CardHeader>
@@ -252,7 +252,7 @@ function MetricCard({
   color: string
 }) {
   return (
-    <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover:shadow-md transition-all">
+    <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl hover:shadow-md transition-all">
       <CardContent className="card-content-padding text-center">
         <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg ${color} flex items-center justify-center mx-auto mb-2 text-white`}>
           {icon}

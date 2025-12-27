@@ -53,7 +53,7 @@ export function InventoryCard({
     <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
       <Card
         onClick={onClick}
-        className={`mobile-card sm:card-premium cursor-pointer group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 ${
+        className={`mobile-card sm:bg-white sm:dark:bg-slate-900 sm:border sm:border-gray-200/40 sm:dark:border-slate-700/40 cursor-pointer group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 ${
           isSelected ? "ring-2 ring-emerald-500 ring-offset-2 ring-offset-background" : ""
         }`}
       >

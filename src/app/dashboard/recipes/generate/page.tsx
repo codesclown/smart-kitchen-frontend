@@ -275,7 +275,7 @@ export default function GenerateRecipePage() {
             {/* Recipe Details */}
             <div className="lg:col-span-2 section-spacing">
               {/* Recipe Info */}
-              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
                 <CardContent className="p-3 sm:p-6">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
                     <div className="text-center">
@@ -324,7 +324,7 @@ export default function GenerateRecipePage() {
               </Card>
 
               {/* Instructions */}
-              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
                 <CardHeader className="pb-2 sm:pb-6">
                   <CardTitle className="flex items-center gap-2 text-sm sm:text-lg">
                     <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -352,7 +352,7 @@ export default function GenerateRecipePage() {
               </Card>
 
               {/* Tips */}
-              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
                 <CardHeader className="pb-2 sm:pb-6">
                   <CardTitle className="flex items-center gap-2 text-sm sm:text-lg">
                     <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -375,7 +375,7 @@ export default function GenerateRecipePage() {
             {/* Sidebar */}
             <div className="lg:col-span-1 section-spacing">
               {/* Ingredients */}
-              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
                 <CardHeader className="pb-2 sm:pb-6">
                   <CardTitle className="text-sm sm:text-lg">Ingredients</CardTitle>
                 </CardHeader>
@@ -405,7 +405,7 @@ export default function GenerateRecipePage() {
 
             {/* Missing Ingredients */}
             {missingIngredients.length > 0 && (
-              <Card className="card-premium border-amber-200 dark:border-amber-800">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl border-amber-200 dark:border-amber-800">
                 <CardHeader>
                   <CardTitle className="text-lg text-amber-700 dark:text-amber-400">
                     Missing Ingredients
@@ -435,7 +435,7 @@ export default function GenerateRecipePage() {
             )}
 
             {/* Nutrition */}
-            <Card className="card-premium">
+            <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
               <CardHeader>
                 <CardTitle className="text-lg">Nutrition (per serving)</CardTitle>
               </CardHeader>
@@ -505,7 +505,7 @@ export default function GenerateRecipePage() {
 
       {/* Generator Interface */}
       {recipes.length === 0 ? (
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardContent className="p-4 sm:p-8 text-center">
             <div className="max-w-md mx-auto space-y-4 sm:space-y-6">
               <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto bg-gradient-to-br from-orange-500 to-red-600 rounded-xl sm:rounded-2xl flex items-center justify-center">

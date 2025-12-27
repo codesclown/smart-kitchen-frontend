@@ -424,7 +424,7 @@ export function InventoryTab() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing"
+      className="section-spacing bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/30"
     >
       {/* Header */}
       <div className="flex flex-col gap-4 sm:gap-5">
@@ -516,7 +516,7 @@ export function InventoryTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="card-premium hover-lift overflow-hidden shadow-sm">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl overflow-hidden">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md shadow-emerald-500/25">
@@ -536,7 +536,7 @@ export function InventoryTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          <Card className="card-premium hover-lift overflow-hidden shadow-sm">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl overflow-hidden">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md shadow-amber-500/25">
@@ -558,7 +558,7 @@ export function InventoryTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="card-premium hover-lift overflow-hidden shadow-sm">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl overflow-hidden">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-md shadow-red-500/25">
@@ -580,7 +580,7 @@ export function InventoryTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
         >
-          <Card className="card-premium hover-lift overflow-hidden shadow-sm">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl overflow-hidden">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center shadow-md shadow-blue-500/25 text-2xl sm:text-3xl">
@@ -923,7 +923,7 @@ export function InventoryTab() {
           ))}
         </div>
       ) : (
-        <Card className="mobile-card sm:card-premium">
+        <Card className="mobile-card sm:bg-white sm:dark:bg-slate-900 sm:border sm:border-gray-200/40 sm:dark:border-slate-700/40">
           <CardContent className="card-content-padding section-spacing">
             <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 rounded-full bg-muted flex items-center justify-center">
               <PackageIcon className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground" />

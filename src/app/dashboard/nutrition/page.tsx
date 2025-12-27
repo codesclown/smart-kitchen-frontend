@@ -489,7 +489,7 @@ export default function NutritionPage() {
       </div>
 
       {/* Daily Summary */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
@@ -579,7 +579,7 @@ export default function NutritionPage() {
       </Card>
 
       {/* Water Intake */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <Droplets className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
@@ -636,7 +636,7 @@ export default function NutritionPage() {
       </Card>
 
       {/* Today's Meals */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
@@ -727,7 +727,7 @@ export default function NutritionPage() {
       </Card>
 
       {/* Achievements */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <Award className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />

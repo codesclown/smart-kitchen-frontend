@@ -174,7 +174,7 @@ export default function AnalyticsPage() {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-green-500 flex items-center justify-center">
@@ -188,7 +188,7 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-red-500 flex items-center justify-center">
@@ -202,7 +202,7 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-500 flex items-center justify-center">
@@ -216,7 +216,7 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-purple-500 flex items-center justify-center">
@@ -233,7 +233,7 @@ export default function AnalyticsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top Consumed Items */}
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardHeader className="pb-2 sm:pb-4">
             <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
               <Target className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -265,7 +265,7 @@ export default function AnalyticsPage() {
         </Card>
 
         {/* Low Stock Predictions */}
-        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardHeader className="pb-2 sm:pb-4">
             <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
               <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -304,7 +304,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Spending by Category */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="pb-2 sm:pb-4">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <PieChart className="w-4 h-4 sm:w-5 sm:h-5" />

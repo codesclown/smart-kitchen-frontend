@@ -180,10 +180,10 @@ export function RecipesTab() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-red-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
         <div className="flex items-center justify-center h-64">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto mb-2"></div>
-            <p className="text-sm text-muted-foreground">Loading your recipe collection...</p>
-            <p className="text-xs text-muted-foreground/70 mt-1">
+          <div className="text-center bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl rounded-2xl p-8 max-w-md mx-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto mb-4"></div>
+            <p className="text-sm font-medium text-foreground mb-2">Loading your recipe collection...</p>
+            <p className="text-xs text-muted-foreground">
               Syncing with inventory data
             </p>
           </div>
@@ -196,10 +196,10 @@ export function RecipesTab() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-red-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
         <div className="flex items-center justify-center h-64">
-          <div className="text-center space-y-3">
+          <div className="text-center space-y-4 bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl rounded-2xl p-8 max-w-md mx-4">
             <ChefHat className="w-12 h-12 text-orange-500 mx-auto" />
             <div>
-              <p className="text-sm font-medium">Unable to load recipes</p>
+              <p className="text-sm font-medium text-foreground mb-2">Unable to load recipes</p>
               <p className="text-xs text-muted-foreground">Don't worry, you can still generate new recipes!</p>
             </div>
             <Button
@@ -207,7 +207,7 @@ export function RecipesTab() {
                 haptic.light();
                 router.push("/dashboard/recipes/generate");
               }}
-              className="bg-orange-500 hover:bg-orange-600"
+              className="bg-orange-500 hover:bg-orange-600 shadow-lg"
             >
               <Sparkles className="w-4 h-4 mr-2" />
               Generate Recipes
@@ -240,13 +240,13 @@ export function RecipesTab() {
       className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-red-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
     >
       {/* Mobile Header */}
-      <div className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <div className="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <div className="px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex flex-col gap-4 sm:gap-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3 sm:gap-4">
                 <h2 className="text-mobile-xl sm:text-2xl font-bold tracking-tight">AI Recipe Assistant</h2>
-                <div className="p-2 sm:p-3 bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/40 dark:to-red-900/40 rounded-xl shadow-sm">
+                <div className="p-2 sm:p-3 bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/40 dark:to-red-900/40 rounded-xl shadow-xl">
                   {aiLoading ? (
                     <div className="w-5 h-5 sm:w-6 sm:h-6 border border-orange-600 dark:border-orange-400 border-t-transparent rounded-full animate-spin" />
                   ) : (
@@ -278,11 +278,11 @@ export function RecipesTab() {
                   onChange={(e) => setQuery(e.target.value)}
                   type="text"
                   placeholder="Search recipes or ingredients..."
-                  className="w-full h-12 sm:h-14 pl-12 sm:pl-14 pr-4 rounded-xl border border-input bg-background/50 backdrop-blur-sm text-mobile-base sm:text-lg font-medium
-                             placeholder:text-muted-foreground/60
+                  className="w-full h-12 sm:h-14 pl-12 sm:pl-14 pr-4 rounded-xl border border-gray-200/40 dark:border-slate-700/40 bg-white dark:bg-slate-900 text-mobile-base sm:text-lg font-medium text-foreground shadow-xl
+                             placeholder:text-muted-foreground/70
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50
-                             focus-visible:border-orange-500/50 focus-visible:bg-background
-                             transition-all duration-200 shadow-sm"
+                             focus-visible:border-orange-500/50 focus-visible:shadow-2xl
+                             transition-all duration-200"
                 />
               </div>
               <Button
@@ -293,7 +293,7 @@ export function RecipesTab() {
                   setRefreshKey(prev => prev + 1);
                 }}
                 disabled={aiLoading}
-                className="h-12 sm:h-14 px-4 shrink-0 border-border/60 hover:bg-muted/60 transition-colors"
+                className="h-12 sm:h-14 px-4 shrink-0 border border-gray-200/40 dark:border-slate-700/40 bg-white dark:bg-slate-900 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-xl"
                 title="Refresh AI recipes"
               >
                 <RefreshCw className={`w-4 h-4 sm:w-5 sm:h-5 ${aiLoading ? 'animate-spin' : ''}`} />
@@ -328,7 +328,7 @@ export function RecipesTab() {
                         haptic.medium();
                         router.push("/dashboard/recipes/generate");
                       }}
-                      className="w-full sm:w-auto bg-white text-orange-600 hover:bg-orange-50 font-semibold shadow-xl group/cta text-mobile-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8"
+                      className="w-full sm:w-auto bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 hover:border-white/40 font-semibold shadow-xl group/cta text-mobile-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8 transition-all duration-200"
                     >
                       Get suggestions
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover/cta:translate-x-1 transition-transform" />
@@ -390,7 +390,7 @@ export function RecipesTab() {
             </div>
 
             {filteredRecipes.length === 0 ? (
-              <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
                 <CardContent className="p-4 sm:p-6 text-center text-xs sm:text-sm text-muted-foreground space-y-2">
                   <p>No recipes match these filters yet.</p>
                   <p>Try changing filters or adding more items to your inventory.</p>
@@ -415,7 +415,7 @@ export function RecipesTab() {
           {/* Mobile-Responsive Sidebar Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Inventory Status */}
-            <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+            <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
               <CardContent className="p-3 sm:p-5 space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 shrink-0">
@@ -446,7 +446,7 @@ export function RecipesTab() {
             </Card>
 
             {/* Meal planner */}
-            <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+            <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
               <CardContent className="p-3 sm:p-5 space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/30 shrink-0">
@@ -467,7 +467,7 @@ export function RecipesTab() {
             </Card>
 
             {/* Browse cuisine */}
-            <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+            <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
               <CardContent className="p-3 sm:p-5">
                 <h3 className="font-semibold text-sm mb-3 flex items-center gap-2">
                   <ChefHat className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500" />
@@ -495,7 +495,7 @@ export function RecipesTab() {
             </Card>
 
             {/* Stats */}
-            <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+            <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
               <CardContent className="p-3 sm:p-5">
                 <h3 className="font-semibold text-sm mb-3 sm:mb-4">Your activity</h3>
                 <div className="space-y-2 sm:space-y-3">
@@ -575,7 +575,7 @@ function RecipeCard({ recipe }: { recipe: Recipe }) {
   return (
     <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.99 }}>
       <Card 
-        className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10 hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-200 cursor-pointer group overflow-hidden"
+        className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl hover:shadow-2xl transition-all duration-200 cursor-pointer group overflow-hidden"
         onClick={handleViewRecipe}
       >
         <CardContent className="p-0">

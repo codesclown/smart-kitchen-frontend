@@ -399,7 +399,7 @@ export function AddItemDialog({
               transition={{ duration: 0.25 }}
               className="w-full max-w-3xl max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
             >
-              <Card className="card-premium border-border/60 bg-card/90 backdrop-blur-xl">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 bg-card/90">
                 <CardContent className="p-0">
                   {/* HEADER */}
                   <div className="relative px-4 sm:px-6 py-4 sm:py-5 bg-gradient-to-br from-emerald-500 via-emerald-500 to-teal-500 text-white">
@@ -492,7 +492,7 @@ export function AddItemDialog({
                                   });
                                   setAiMessage(null);
                                 }}
-                                className="h-11 card-premium"
+                                className="h-11 bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40"
                               />
                             </div>
 
@@ -513,7 +513,7 @@ export function AddItemDialog({
                                       quantity: e.target.value,
                                     })
                                   }
-                                  className="h-11 card-premium"
+                                  className="h-11 bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40"
                                 />
                               </div>
 
@@ -529,7 +529,7 @@ export function AddItemDialog({
                                       unit: e.target.value,
                                     })
                                   }
-                                  className="h-11 card-premium rounded-xl border px-3 text-sm"
+                                  className="h-11 bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 rounded-xl border px-3 text-sm"
                                 >
                                   {units.map((u) => (
                                     <option key={u} value={u}>
@@ -682,7 +682,7 @@ export function AddItemDialog({
                                 })
                               }
                               min={new Date().toISOString().slice(0, 10)}
-                              className="h-11 card-premium"
+                              className="h-11 bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40"
                             />
                             <p className="text-[11px] text-muted-foreground">
                               <span className="font-medium">

@@ -334,7 +334,7 @@ export default function PriceComparisonPage() {
           const savings = worstPrice - bestPrice
 
           return (
-            <Card key={itemName} className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+            <Card key={itemName} className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
@@ -471,7 +471,7 @@ export default function PriceComparisonPage() {
       )}
 
       {/* Price Alerts */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
             <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5" />

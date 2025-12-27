@@ -103,7 +103,7 @@ export function RemindersTab() {
       </div>
 
       {/* Filters */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardContent className="p-3 sm:p-4 flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center justify-between">
           <div className="flex items-center gap-1.5 sm:gap-2">
             <div className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-indigo-100 dark:bg-indigo-900/40">
@@ -135,7 +135,7 @@ export function RemindersTab() {
       </Card>
 
       {/* List */}
-      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+      <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
         <CardHeader className="pb-2 sm:pb-4 flex flex-row items-center justify-between gap-2">
           <div>
             <CardTitle className="text-[10px] sm:text-lg">

@@ -178,7 +178,7 @@ export function ScanItemDialog({ isOpen, onClose }: ScanItemDialogProps) {
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="w-full max-w-3xl max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
             >
-              <Card className="card-premium border-border/60 bg-card/90 backdrop-blur-xl">
+              <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 bg-card/90">
                 <CardContent className="p-0">
                   {/* Header */}
                   <div className="relative dialog-padding dialog-spacing bg-gradient-to-br from-emerald-500 via-emerald-500 to-teal-500 text-white">

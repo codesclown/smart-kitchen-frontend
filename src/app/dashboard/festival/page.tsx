@@ -171,7 +171,7 @@ export default function FestivalPage() {
         {/* Festival Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Info Card */}
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
@@ -217,7 +217,7 @@ export default function FestivalPage() {
           </Card>
 
           {/* Popular Dishes */}
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <ChefHat className="w-5 h-5" />
@@ -252,7 +252,7 @@ export default function FestivalPage() {
           </Card>
 
           {/* Shopping List */}
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 lg:col-span-2">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl lg:col-span-2">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <ShoppingCart className="w-5 h-5" />
@@ -334,7 +334,7 @@ export default function FestivalPage() {
               transition={{ delay: index * 0.1 }}
             >
               <Card 
-                className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover-lift cursor-pointer"
+                className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl hover-lift cursor-pointer"
                 onClick={() => handleFestivalSelect(festival)}
               >
                 <CardContent className="p-4 sm:p-6">
@@ -389,7 +389,7 @@ export default function FestivalPage() {
               transition={{ delay: index * 0.1 }}
             >
               <Card 
-                className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover-lift cursor-pointer opacity-75 hover:opacity-100"
+                className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl hover-lift cursor-pointer opacity-75 hover:opacity-100"
                 onClick={() => handleFestivalSelect(festival)}
               >
                 <CardContent className="p-3 sm:p-4">

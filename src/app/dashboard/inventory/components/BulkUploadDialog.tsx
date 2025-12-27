@@ -89,7 +89,7 @@ export function BulkUploadDialog({
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
       <div className="fixed inset-0 bg-background/80 backdrop-blur-md" onClick={onClose} />
 
-      <Card className="relative z-10 w-full max-w-xl card-premium bg-card/90 shadow-2xl">
+      <Card className="relative z-10 w-full max-w-xl bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 bg-card/90">
         <CardContent className="p-6 space-y-4">
           <div className="flex justify-between items-center mb-2">
             <div>

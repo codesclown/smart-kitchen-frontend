@@ -365,7 +365,7 @@ export function ShoppingTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
@@ -385,7 +385,7 @@ export function ShoppingTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
@@ -407,7 +407,7 @@ export function ShoppingTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
@@ -429,7 +429,7 @@ export function ShoppingTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
         >
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardContent className="p-4 sm:p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/30 text-2xl sm:text-3xl">
@@ -452,7 +452,7 @@ export function ShoppingTab() {
         {/* Active Shopping List - Always visible */}
         <div className="space-y-4">
           {/* List Tab Switcher */}
-          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
             <CardContent className="p-4">
               <div className="flex bg-muted/50 rounded-xl p-2 mb-4 w-full gap-2">
                 {[

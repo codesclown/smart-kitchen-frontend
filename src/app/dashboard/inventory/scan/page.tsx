@@ -80,7 +80,7 @@ export default function ScanPage() {
       {/* Scan Interface */}
       <div className="mobile-container sm:max-w-2xl sm:mx-auto">
         {!scannedImage ? (
-          <Card className="card-premium">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40">
             <CardHeader className="text-center">
               <div className="mx-auto w-20 h-20 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4">
                 <Camera className="w-10 h-10 text-white" />
@@ -129,7 +129,7 @@ export default function ScanPage() {
             </CardContent>
           </Card>
         ) : (
-          <Card className="card-premium">
+          <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>Processing Image</CardTitle>
               <Button

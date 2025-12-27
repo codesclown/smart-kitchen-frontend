@@ -58,7 +58,7 @@ export function QuickAddDialog({
         onClick={onClose}
       />
 
-      <Card className="relative z-10 w-full max-w-md card-premium border-border/60 bg-card/90 backdrop-blur-xl shadow-2xl">
+      <Card className="relative z-10 w-full max-w-md bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 bg-card/90">
         <CardContent className="p-4 sm:p-6 space-y-4">
           <div className="flex items-center justify-between gap-3">
             <div>
