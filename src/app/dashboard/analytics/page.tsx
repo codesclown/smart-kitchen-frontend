@@ -174,7 +174,7 @@ export default function AnalyticsPage() {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-green-500 flex items-center justify-center">
@@ -188,7 +188,7 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-red-500 flex items-center justify-center">
@@ -202,7 +202,7 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-500 flex items-center justify-center">
@@ -216,7 +216,7 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardContent className="p-2.5 sm:p-4">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-purple-500 flex items-center justify-center">
@@ -233,7 +233,7 @@ export default function AnalyticsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top Consumed Items */}
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardHeader className="pb-2 sm:pb-4">
             <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
               <Target className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -265,7 +265,7 @@ export default function AnalyticsPage() {
         </Card>
 
         {/* Low Stock Predictions */}
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardHeader className="pb-2 sm:pb-4">
             <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
               <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -304,7 +304,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Spending by Category */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="pb-2 sm:pb-4">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <PieChart className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -338,7 +338,7 @@ export default function AnalyticsPage() {
       </Card>
 
       {/* Insights & Recommendations */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="pb-2 sm:pb-4">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -348,7 +348,7 @@ export default function AnalyticsPage() {
         <CardContent className="p-3 sm:p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             {analytics.wastePercentage > 15 && (
-              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-red-50/80 dark:bg-red-900/30 border border-red-200/60 dark:border-red-800/60 shadow-sm backdrop-blur-sm">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 mt-0.5" />
                   <div>
@@ -362,7 +362,7 @@ export default function AnalyticsPage() {
             )}
 
             {analytics.avgDailySpend > 200 && (
-              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800">
+              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-orange-50/80 dark:bg-orange-900/30 border border-orange-200/60 dark:border-orange-800/60 shadow-sm backdrop-blur-sm">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 mt-0.5" />
                   <div>
@@ -376,7 +376,7 @@ export default function AnalyticsPage() {
             )}
 
             {analytics.lowStockPredictions.length > 0 && (
-              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-blue-50/80 dark:bg-blue-900/30 border border-blue-200/60 dark:border-blue-800/60 shadow-sm backdrop-blur-sm">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <Package className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 mt-0.5" />
                   <div>
@@ -390,7 +390,7 @@ export default function AnalyticsPage() {
             )}
 
             {analytics.wastePercentage < 5 && analytics.avgDailySpend < 150 && (
-              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+              <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-green-50/80 dark:bg-green-900/30 border border-green-200/60 dark:border-green-800/60 shadow-sm backdrop-blur-sm">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mt-0.5" />
                   <div>

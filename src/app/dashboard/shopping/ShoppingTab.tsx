@@ -447,10 +447,10 @@ export function ShoppingTab() {
         </motion.div>
       </div>
 
-      {/* Main Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-        {/* Active Shopping List */}
-        <div className="lg:col-span-2 space-y-4">
+      {/* Main Layout - Mobile First Responsive */}
+      <div className="space-y-4 sm:space-y-6">
+        {/* Active Shopping List - Always visible */}
+        <div className="space-y-4">
           {/* List Tab Switcher */}
           <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-200/60 dark:border-slate-700/60 shadow-lg">
             <CardContent className="p-4">
@@ -682,8 +682,8 @@ export function ShoppingTab() {
           </div>
         </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-1 space-y-4">
+        {/* Mobile-Responsive Sidebar Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Festival Templates */}
           <Card className="mobile-card sm:card-premium">
             <CardHeader className="pb-2 sm:pb-4">

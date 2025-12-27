@@ -363,10 +363,10 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
     >
       {/* Premium Mobile Header */}
-      <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/40">
+      <div className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
             <Button
               variant="ghost"
@@ -375,7 +375,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                 haptic.light()
                 router.back()
               }}
-              className="h-10 w-10 shrink-0 hover:bg-muted/60 transition-colors"
+              className="h-10 w-10 shrink-0 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors rounded-xl"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -392,7 +392,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                 variant="outline"
                 size="icon"
                 onClick={handleShareRecipe}
-                className="h-10 w-10 border-border/60 hover:bg-muted/60 transition-colors"
+                className="h-10 w-10 border-slate-200/60 dark:border-slate-700/60 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"
               >
                 <Share2 className="w-4 h-4" />
               </Button>
@@ -404,7 +404,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                   relative h-10 w-10 rounded-2xl transition-all duration-300 ease-out
                   ${isFavorite 
                     ? 'bg-gradient-to-br from-rose-500 via-pink-500 to-red-500 hover:from-rose-600 hover:via-pink-600 hover:to-red-600 shadow-lg shadow-rose-500/50' 
-                    : 'bg-slate-800/60 hover:bg-slate-700/80 border border-slate-600/50 hover:border-slate-500/70 shadow-sm'
+                    : 'bg-slate-100/80 hover:bg-slate-200/80 dark:bg-slate-800/60 dark:hover:bg-slate-700/80 border border-slate-300/60 dark:border-slate-600/50 hover:border-slate-400/70 dark:hover:border-slate-500/70 shadow-sm'
                   }
                   ${isSaving ? 'animate-pulse' : 'hover:scale-105 active:scale-95'}
                   group overflow-hidden
@@ -422,7 +422,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                       <div className={`w-4 h-4 border-2 rounded-full animate-spin ${
                         isFavorite 
                           ? 'border-white/30 border-t-white' 
-                          : 'border-slate-400/30 border-t-slate-300'
+                          : 'border-slate-600/30 dark:border-slate-400/30 border-t-slate-800 dark:border-t-slate-300'
                       }`} />
                     </div>
                   ) : (
@@ -432,7 +432,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                         <Heart className="w-4 h-4 fill-white text-white drop-shadow-sm animate-[heartbeat_0.6s_ease-in-out]" />
                       ) : (
                         // UNFAVORITED: Outline gray heart
-                        <Heart className="w-4 h-4 fill-none text-slate-400 hover:text-slate-300 hover:scale-110 stroke-2 transition-all duration-300" />
+                        <Heart className="w-4 h-4 fill-none text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-300 hover:scale-110 stroke-2 transition-all duration-300" />
                       )}
                       
                       {/* Heart pulse effect - only when favorited */}
@@ -451,7 +451,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                     absolute inset-0 rounded-full scale-0 transition-transform duration-300
                     ${isFavorite 
                       ? 'bg-white/30' 
-                      : 'bg-slate-300/20'
+                      : 'bg-slate-600/20 dark:bg-slate-300/20'
                     }
                     ${isSaving ? '' : 'group-active:scale-150 group-active:opacity-0'}
                   `} />
@@ -498,10 +498,10 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20 shadow-sm">
+            <Card className="border-amber-200/60 dark:border-amber-800/60 bg-amber-50/80 dark:bg-amber-950/30 shadow-lg shadow-amber-500/10 dark:shadow-black/20 backdrop-blur-sm">
               <CardContent className="p-4">
                 <div className="flex items-start gap-3">
-                  <div className="p-2 bg-amber-100 dark:bg-amber-900/30 rounded-lg shrink-0">
+                  <div className="p-2 bg-amber-100/80 dark:bg-amber-900/40 rounded-lg shrink-0 shadow-sm">
                     <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -512,13 +512,13 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                       {missingIngredients.slice(0, 4).map((ingredient, index) => (
                         <span
                           key={index}
-                          className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300"
+                          className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-amber-100/80 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 shadow-sm"
                         >
                           {ingredient.name}
                         </span>
                       ))}
                       {missingIngredients.length > 4 && (
-                        <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">
+                        <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-amber-100/80 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 shadow-sm">
                           +{missingIngredients.length - 4} more
                         </span>
                       )}
@@ -538,14 +538,14 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
           </motion.div>
         )}
         {/* Compact Recipe Stats */}
-        <Card className="card-premium overflow-hidden shadow-sm">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 overflow-hidden shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardContent className="p-0">
             <div className="grid grid-cols-2 sm:grid-cols-4">
               <motion.div 
                 initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-center p-3 sm:p-4 border-r border-b sm:border-b-0 border-border/30"
+                className="text-center p-3 sm:p-4 border-r border-b sm:border-b-0 border-slate-200/40 dark:border-slate-700/40"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
                   <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -558,7 +558,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                 initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-center p-3 sm:p-4 border-b sm:border-b-0 sm:border-r border-border/30"
+                className="text-center p-3 sm:p-4 border-b sm:border-b-0 sm:border-r border-slate-200/40 dark:border-slate-700/40"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center shadow-md">
                   <ChefHat className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -571,7 +571,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                 initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-center p-3 sm:p-4 border-r border-border/30"
+                className="text-center p-3 sm:p-4 border-r border-slate-200/40 dark:border-slate-700/40"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md">
                   <Users className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -601,14 +601,14 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
             </div>
             
             {/* Compact Tags Section */}
-            <div className="px-3 py-2.5 sm:p-4 border-t border-border/30 bg-muted/10">
+            <div className="px-3 py-2.5 sm:p-4 border-t border-slate-200/40 dark:border-slate-700/40 bg-slate-50/50 dark:bg-slate-800/30">
               <div className="flex flex-wrap items-center gap-1.5">
-                <Badge variant="outline" className="text-[10px] px-2 py-0.5 bg-background">{recipe.cuisine}</Badge>
-                <Badge className="text-[10px] px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400">
+                <Badge variant="outline" className="text-[10px] px-2 py-0.5 bg-white/95 dark:bg-slate-900/95 border-slate-200/60 dark:border-slate-700/60">{recipe.cuisine}</Badge>
+                <Badge className="text-[10px] px-2 py-0.5 bg-emerald-100/80 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 shadow-sm">
                   {availableIngredients}/{totalIngredients} available
                 </Badge>
                 {recipe.tags?.slice(0, 2).map((tag) => (
-                  <Badge key={tag} variant="outline" className="text-[10px] px-2 py-0.5 bg-background">
+                  <Badge key={tag} variant="outline" className="text-[10px] px-2 py-0.5 bg-white/95 dark:bg-slate-900/95 border-slate-200/60 dark:border-slate-700/60">
                     {tag}
                   </Badge>
                 ))}
@@ -622,7 +622,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-4">
             {/* Ingredients Section - Moved to top */}
-            <Card className="card-premium shadow-sm">
+            <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
               <CardHeader className="pb-3">
                 <CardTitle className="text-base">Ingredients</CardTitle>
               </CardHeader>
@@ -633,8 +633,8 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                       key={index}
                       className={`flex items-center justify-between p-2.5 rounded-lg transition-colors ${
                         ingredient.available 
-                          ? 'bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200/50 dark:border-emerald-800/50' 
-                          : 'bg-red-50 dark:bg-red-950/20 border border-red-200/50 dark:border-red-800/50'
+                          ? 'bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-800/60 shadow-sm' 
+                          : 'bg-red-50/80 dark:bg-red-950/30 border border-red-200/60 dark:border-red-800/60 shadow-sm'
                       }`}
                     >
                       <div className="flex-1 min-w-0">
@@ -645,7 +645,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                             {ingredient.name}
                           </p>
                           {!ingredient.available && (
-                            <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-medium bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 shrink-0">
+                            <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-medium bg-red-100/80 text-red-700 dark:bg-red-900/40 dark:text-red-400 shrink-0 shadow-sm">
                               Missing
                             </span>
                           )}
@@ -661,7 +661,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                 
                 {/* Small missing text under ingredients */}
                 {missingIngredients.length > 0 && (
-                  <div className="mt-3 p-2 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200/50 dark:border-amber-800/50">
+                  <div className="mt-3 p-2 bg-amber-50/80 dark:bg-amber-950/30 rounded-lg border border-amber-200/60 dark:border-amber-800/60 shadow-sm backdrop-blur-sm">
                     <div className="flex items-center gap-2 text-xs text-amber-700 dark:text-amber-400">
                       <AlertCircle className="w-3 h-3 shrink-0" />
                       <span>
@@ -676,7 +676,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
             </Card>
 
             {/* Instructions - Moved below ingredients */}
-            <Card className="card-premium shadow-sm">
+            <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-base">
                   <BookOpen className="w-4 h-4" />
@@ -707,7 +707,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
 
           {/* Compact Tips */}
           {recipe.tips && recipe.tips.length > 0 && (
-            <Card className="card-premium shadow-sm">
+            <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-base">
                   <Sparkles className="w-4 h-4" />
@@ -734,7 +734,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
         <div className="lg:col-span-1 space-y-4">
           {/* Compact Missing Ingredients */}
           {missingIngredients.length > 0 && (
-            <Card className="card-premium shadow-sm border-amber-200/50 dark:border-amber-800/50">
+            <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-amber-200/60 dark:border-amber-800/60 shadow-xl shadow-amber-500/10 dark:shadow-black/20">
               <CardHeader className="pb-3">
                 <CardTitle className="text-base text-amber-700 dark:text-amber-400">
                   Missing Ingredients
@@ -752,7 +752,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  className="w-full h-8 text-xs border-amber-300 text-amber-700 hover:bg-amber-50"
+                  className="w-full h-8 text-xs border-amber-300/60 dark:border-amber-700/60 text-amber-700 dark:text-amber-400 hover:bg-amber-50/80 dark:hover:bg-amber-950/30 shadow-sm"
                   onClick={handleAddToShoppingList}
                 >
                   <ShoppingCart className="w-3 h-3 mr-1.5" />
@@ -763,7 +763,7 @@ export default function RecipeDetailPage({ params }: RecipeDetailProps) {
           )}
 
           {/* Compact Nutrition */}
-          <Card className="card-premium shadow-sm">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
             <CardHeader className="pb-3">
               <CardTitle className="text-base">Nutrition (per serving)</CardTitle>
             </CardHeader>

@@ -15,11 +15,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useExpenses } from "@/hooks/use-expenses"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import React from "react"
 import { useHapticFeedback } from "@/lib/haptics"
 import { useRouter } from "next/navigation"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts'
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts'
 
 const periods = ["This Week", "This Month", "This Year"] as const
 type Period = (typeof periods)[number]
@@ -29,13 +29,18 @@ export function ExpensesTab() {
   const haptic = useHapticFeedback();
   const [selectedPeriod, setSelectedPeriod] = useState<Period>("This Month")
   const [openPeriod, setOpenPeriod] = useState(false)
+  const [mounted, setMounted] = useState(false)
   
   const { expenses, stats, priceTrends, loading, error } = useExpenses()
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   // Process price trends data for the chart
   const processedPriceData = React.useMemo(() => {
-    if (!priceTrends || Object.keys(priceTrends).length === 0) {
-      // Return empty array if no data
+    if (!mounted || !priceTrends || Object.keys(priceTrends).length === 0) {
+      // Return empty array if not mounted or no data
       return [];
     }
 
@@ -68,10 +73,12 @@ export function ExpensesTab() {
       
       return dataPoint;
     });
-  }, [priceTrends]);
+  }, [priceTrends, mounted]);
 
   // Calculate price change percentages
   const priceChanges = React.useMemo(() => {
+    if (!mounted || !priceTrends) return {};
+    
     const changes: Record<string, number> = {};
     
     Object.keys(priceTrends).forEach(category => {
@@ -85,9 +92,9 @@ export function ExpensesTab() {
     });
     
     return changes;
-  }, [priceTrends]);
+  }, [priceTrends, mounted]);
 
-  if (loading) {
+  if (!mounted || loading) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
@@ -109,10 +116,10 @@ export function ExpensesTab() {
     )
   }
 
-  const totalExpenses = stats.total || 0
-  const rationExpenses = stats.ration || 0
-  const foodOrderExpenses = stats.foodOrder || 0
-  const avgDailySpend = stats.avgDaily || 0
+  const totalExpenses = stats?.total || 0
+  const rationExpenses = stats?.ration || 0
+  const foodOrderExpenses = stats?.foodOrder || 0
+  const avgDailySpend = stats?.avgDaily || 0
 
   return (
     <motion.div
@@ -145,8 +152,8 @@ export function ExpensesTab() {
               type="button"
               onClick={() => setOpenPeriod((p) => !p)}
               className="inline-flex items-center justify-between gap-2 h-12 sm:h-14 px-4 sm:px-5 rounded-xl
-                         border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-mobile-base sm:text-lg text-foreground w-full sm:min-w-[10rem]
-                         hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 shadow-sm hover:shadow-md font-medium"
+                         border border-slate-200/60 dark:border-slate-700/60 bg-white/95 dark:bg-slate-900/95 text-mobile-base sm:text-lg text-foreground w-full sm:min-w-[10rem]
+                         hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300/80 dark:hover:border-slate-600/80 transition-all duration-200 shadow-lg shadow-slate-900/5 dark:shadow-black/20 hover:shadow-xl font-medium backdrop-blur-xl"
             >
               <span className="truncate">{selectedPeriod}</span>
               <span className="inline-flex items-center justify-center">
@@ -168,8 +175,8 @@ export function ExpensesTab() {
 
             {openPeriod && (
               <div
-                className="absolute right-0 mt-2 w-full sm:w-48 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800
-                           shadow-xl z-20 overflow-hidden text-mobile-base sm:text-lg backdrop-blur-xl"
+                className="absolute right-0 mt-2 w-full sm:w-48 rounded-xl border border-slate-200/60 dark:border-slate-700/60 bg-white/95 dark:bg-slate-900/95
+                           shadow-xl shadow-slate-900/10 dark:shadow-black/30 z-20 overflow-hidden text-mobile-base sm:text-lg backdrop-blur-xl"
               >
                 {periods.map((period) => (
                   <button
@@ -182,7 +189,7 @@ export function ExpensesTab() {
                     className={`w-full px-4 sm:px-5 py-3 sm:py-4 text-left transition-all duration-200 font-medium ${
                       selectedPeriod === period
                         ? "bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400"
-                        : "text-muted-foreground hover:bg-gray-50 dark:hover:bg-gray-700"
+                        : "text-muted-foreground hover:bg-slate-50 dark:hover:bg-slate-700"
                     }`}
                   >
                     {period}
@@ -359,7 +366,7 @@ export function ExpensesTab() {
           </div>
 
           <div className="space-y-4 sm:space-y-5 max-h-[600px] overflow-y-auto">
-            {expenses.length > 0 ? (
+            {expenses && expenses.length > 0 ? (
               expenses.map((expense: Expense, index: number) => (
                 <motion.div
                   key={expense.id}
@@ -440,7 +447,7 @@ export function ExpensesTab() {
                         }}
                         formatter={(value: any, name?: string) => [`₹${value}`, name || '']}
                       />
-                      {Object.keys(priceTrends).map((category, index) => {
+                      {priceTrends && Object.keys(priceTrends).map((category, index) => {
                         const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
                         const gradients = ['colorMilk', 'colorRice', 'colorWheat', 'colorOil', 'colorMilk'];
                         return (
@@ -468,7 +475,7 @@ export function ExpensesTab() {
                 )}
               </div>
               <div className="flex items-center justify-between mt-3 sm:mt-4 text-xs sm:text-sm flex-wrap gap-2">
-                {Object.keys(priceChanges).map((category, index) => {
+                {priceTrends && Object.keys(priceChanges).map((category, index) => {
                   const change = priceChanges[category];
                   const colors = ['blue-500', 'emerald-500', 'amber-500', 'red-500', 'purple-500'];
                   const isPositive = change > 0;
@@ -487,7 +494,7 @@ export function ExpensesTab() {
                     </div>
                   );
                 })}
-                {Object.keys(priceChanges).length === 0 && (
+                {(!priceTrends || Object.keys(priceChanges).length === 0) && (
                   <span className="text-muted-foreground text-xs">No price changes to display</span>
                 )}
               </div>
@@ -510,12 +517,22 @@ interface Expense {
 }
 
 function ExpenseCard({ expense }: { expense: Expense }) {
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
   const isRation = expense.type === "GROCERY" || expense.category === "GROCERY"
   
   // Format the date to a user-friendly format
   const formatDate = (dateString: string) => {
+    if (!mounted) return dateString; // Return raw string during SSR
+    
     try {
       const date = new Date(dateString)
+      if (isNaN(date.getTime())) return dateString;
+      
       const now = new Date()
       const diffTime = Math.abs(now.getTime() - date.getTime())
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))

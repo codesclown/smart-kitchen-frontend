@@ -99,7 +99,7 @@ export default function ReportsPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing"
+      className="section-spacing bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950/30"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">
@@ -179,7 +179,7 @@ export default function ReportsPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center py-12"
         >
-          <Card className="card-premium max-w-md mx-auto">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 max-w-md mx-auto">
             <CardContent className="p-6">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
                 <BarChart3 className="w-8 h-8 text-white" />
@@ -198,7 +198,7 @@ export default function ReportsPage() {
       )}
 
       {/* Export Options - Always show */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="text-sm sm:text-lg">Export Report</CardTitle>
         </CardHeader>
@@ -252,7 +252,7 @@ function MetricCard({
   color: string
 }) {
   return (
-    <Card className="card-premium hover:shadow-md transition-all">
+    <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover:shadow-md transition-all">
       <CardContent className="card-content-padding text-center">
         <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg ${color} flex items-center justify-center mx-auto mb-2 text-white`}>
           {icon}

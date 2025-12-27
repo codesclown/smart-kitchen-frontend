@@ -19,7 +19,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 sm:h-11 w-full items-center justify-between rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 backdrop-blur-lg shadow-sm px-3 sm:px-4 py-2 sm:py-3 text-mobile-sm sm:text-base font-medium transition-all duration-200 ease-out outline-none placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:border-gray-300 dark:hover:border-gray-600 focus:bg-white dark:focus:bg-gray-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-gray-900 dark:text-gray-100 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 min-h-[40px] sm:min-h-[44px]",
+      "flex h-10 sm:h-11 w-full items-center justify-between rounded-lg sm:rounded-xl border border-slate-200/60 dark:border-slate-700/60 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-lg shadow-slate-900/5 dark:shadow-black/20 px-3 sm:px-4 py-2 sm:py-3 text-mobile-sm sm:text-base font-medium transition-all duration-200 ease-out outline-none placeholder:text-slate-400 dark:placeholder:text-slate-500 hover:border-slate-300/80 dark:hover:border-slate-600/80 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-slate-900 dark:text-slate-100 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 min-h-[40px] sm:min-h-[44px]",
       className
     )}
     {...props}

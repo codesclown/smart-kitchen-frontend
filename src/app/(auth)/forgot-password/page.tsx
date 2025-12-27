@@ -70,23 +70,23 @@ export default function ForgotPasswordPage() {
               <h1 className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
                 Check Your Email
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+              <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm md:text-base">
                 We've sent password reset instructions to your email
               </p>
             </div>
           </div>
 
           {/* Success Card */}
-          <Card className="border-0 shadow-xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
+          <Card className="border-0 shadow-xl shadow-slate-900/10 dark:shadow-black/30 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl">
             <CardContent className="p-4 sm:p-8 text-center space-y-4 sm:space-y-6">
               <div className="space-y-3 sm:space-y-4">
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                   We've sent a password reset link to:
                 </p>
-                <p className="font-medium text-sm sm:text-base text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg">
+                <p className="font-medium text-sm sm:text-base text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm">
                   {email}
                 </p>
-                <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
                   Didn't receive the email? Check your spam folder or try again.
                 </p>
               </div>
@@ -136,14 +136,14 @@ export default function ForgotPasswordPage() {
             <h1 className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
               Forgot Password?
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm md:text-base">
               Enter your email to reset your password
             </p>
           </div>
         </div>
 
         {/* Reset Card */}
-        <Card className="border-0 shadow-xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
+        <Card className="border-0 shadow-xl shadow-slate-900/10 dark:shadow-black/30 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl">
           <CardContent className="p-4 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Error Message */}
@@ -160,7 +160,7 @@ export default function ForgotPasswordPage() {
 
               {/* Email Field */}
               <div className="space-y-2 sm:space-y-3">
-                <Label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-200">
+                <Label htmlFor="email" className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
                   Email Address
                 </Label>
                 <div className="relative group">
@@ -172,7 +172,7 @@ export default function ForgotPasswordPage() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200"
+                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-slate-200/60 dark:border-slate-600/60 bg-white/95 dark:bg-slate-700/95 text-slate-900 dark:text-slate-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 backdrop-blur-xl"
                     required
                   />
                 </div>
@@ -201,7 +201,7 @@ export default function ForgotPasswordPage() {
         <div className="text-center">
           <Link
             href="/login"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
           >
             <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4" />
             Back to Sign In

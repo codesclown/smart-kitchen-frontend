@@ -104,20 +104,20 @@ function ResetPasswordForm() {
               <h1 className="text-2xl md:text-3xl mobile-text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
                 Password Reset
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base mobile-text-sm">
+              <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base mobile-text-sm">
                 Your password has been successfully reset
               </p>
             </div>
           </div>
 
           {/* Success Card */}
-          <Card className="border-0 shadow-xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
+          <Card className="border-0 shadow-xl shadow-slate-900/10 dark:shadow-black/30 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl">
             <CardContent className="p-8 text-center space-y-6">
               <div className="space-y-4">
-                <p className="text-xs md:text-sm mobile-text-xs text-gray-600 dark:text-gray-300">
+                <p className="text-xs md:text-sm mobile-text-xs text-slate-600 dark:text-slate-300">
                   You can now sign in with your new password.
                 </p>
-                <p className="text-xs mobile-text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs mobile-text-xs text-slate-500 dark:text-slate-400">
                   Redirecting to login page in 3 seconds...
                 </p>
               </div>
@@ -161,14 +161,14 @@ function ResetPasswordForm() {
             <h1 className="text-2xl md:text-3xl mobile-text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
               Reset Password
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base mobile-text-sm">
+            <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base mobile-text-sm">
               Enter your new password below
             </p>
           </div>
         </div>
 
         {/* Reset Card */}
-        <Card className="border-0 shadow-xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
+        <Card className="border-0 shadow-xl shadow-slate-900/10 dark:shadow-black/30 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl">
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Error Message */}
@@ -185,7 +185,7 @@ function ResetPasswordForm() {
 
               {/* Password Field */}
               <div className="space-y-3">
-                <Label htmlFor="password" className="text-xs md:text-sm mobile-text-xs font-medium text-gray-700 dark:text-gray-200">
+                <Label htmlFor="password" className="text-xs md:text-sm mobile-text-xs font-medium text-slate-700 dark:text-slate-200">
                   New Password
                 </Label>
                 <div className="relative group">
@@ -197,7 +197,7 @@ function ResetPasswordForm() {
                     placeholder="Enter new password (min. 6 characters)"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="mobile-input pl-12 pr-12 h-10 md:h-12 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 text-sm mobile-text-sm"
+                    className="mobile-input pl-12 pr-12 h-10 md:h-12 border-slate-200/60 dark:border-slate-600/60 bg-white/95 dark:bg-slate-700/95 text-slate-900 dark:text-slate-100 rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 text-sm mobile-text-sm backdrop-blur-xl"
                     required
                     minLength={6}
                   />
@@ -220,7 +220,7 @@ function ResetPasswordForm() {
 
               {/* Confirm Password Field */}
               <div className="space-y-3">
-                <Label htmlFor="confirmPassword" className="text-xs md:text-sm mobile-text-xs font-medium text-gray-700 dark:text-gray-200">
+                <Label htmlFor="confirmPassword" className="text-xs md:text-sm mobile-text-xs font-medium text-slate-700 dark:text-slate-200">
                   Confirm New Password
                 </Label>
                 <div className="relative group">
@@ -232,7 +232,7 @@ function ResetPasswordForm() {
                     placeholder="Confirm new password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="mobile-input pl-12 pr-12 h-10 md:h-12 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 text-sm mobile-text-sm"
+                    className="mobile-input pl-12 pr-12 h-10 md:h-12 border-slate-200/60 dark:border-slate-600/60 bg-white/95 dark:bg-slate-700/95 text-slate-900 dark:text-slate-100 rounded-xl focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 text-sm mobile-text-sm backdrop-blur-xl"
                     required
                   />
                   <button
@@ -276,7 +276,7 @@ function ResetPasswordForm() {
         <div className="text-center">
           <Link
             href="/login"
-            className="text-xs md:text-sm mobile-text-xs text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            className="text-xs md:text-sm mobile-text-xs text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
           >
             Back to Sign In
           </Link>

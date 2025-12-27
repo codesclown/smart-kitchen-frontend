@@ -240,7 +240,7 @@ export function RecipesTab() {
       className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-red-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
     >
       {/* Mobile Header */}
-      <div className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+      <div className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <div className="px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex flex-col gap-4 sm:gap-5">
             <div className="flex items-center justify-between">
@@ -344,10 +344,10 @@ export function RecipesTab() {
           </div>
         </motion.div>
 
-        {/* Main layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-          {/* Recipes list */}
-          <div className="lg:col-span-2 section-spacing">
+        {/* Main layout - Mobile First Responsive */}
+        <div className="space-y-4 sm:space-y-6">
+          {/* Recipes list - Always visible first on mobile */}
+          <div className="section-spacing">
             {/* Filters row */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2">
@@ -412,8 +412,8 @@ export function RecipesTab() {
             )}
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1 section-spacing">
+          {/* Mobile-Responsive Sidebar Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Inventory Status */}
             <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
               <CardContent className="p-3 sm:p-5 space-y-3 sm:space-y-4">

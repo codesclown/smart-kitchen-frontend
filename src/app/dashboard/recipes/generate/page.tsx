@@ -229,7 +229,7 @@ export default function GenerateRecipePage() {
         className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-red-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
       >
         {/* Mobile Header */}
-        <div className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+        <div className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <div className="dialog-padding dialog-spacing">
             <div className="flex items-center gap-2 sm:gap-4">
               <Button
@@ -275,7 +275,7 @@ export default function GenerateRecipePage() {
             {/* Recipe Details */}
             <div className="lg:col-span-2 section-spacing">
               {/* Recipe Info */}
-              <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
                 <CardContent className="p-3 sm:p-6">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
                     <div className="text-center">
@@ -324,7 +324,7 @@ export default function GenerateRecipePage() {
               </Card>
 
               {/* Instructions */}
-              <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
                 <CardHeader className="pb-2 sm:pb-6">
                   <CardTitle className="flex items-center gap-2 text-sm sm:text-lg">
                     <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -352,7 +352,7 @@ export default function GenerateRecipePage() {
               </Card>
 
               {/* Tips */}
-              <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
                 <CardHeader className="pb-2 sm:pb-6">
                   <CardTitle className="flex items-center gap-2 text-sm sm:text-lg">
                     <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -375,7 +375,7 @@ export default function GenerateRecipePage() {
             {/* Sidebar */}
             <div className="lg:col-span-1 section-spacing">
               {/* Ingredients */}
-              <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+              <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
                 <CardHeader className="pb-2 sm:pb-6">
                   <CardTitle className="text-sm sm:text-lg">Ingredients</CardTitle>
                 </CardHeader>
@@ -476,7 +476,7 @@ export default function GenerateRecipePage() {
       className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-red-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
     >
       {/* Mobile Header */}
-      <div className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+      <div className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <div className="dialog-padding dialog-spacing">
           <div className="flex items-center gap-2 sm:gap-4">
             <Button
@@ -505,7 +505,7 @@ export default function GenerateRecipePage() {
 
       {/* Generator Interface */}
       {recipes.length === 0 ? (
-        <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20">
           <CardContent className="p-4 sm:p-8 text-center">
             <div className="max-w-md mx-auto space-y-4 sm:space-y-6">
               <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto bg-gradient-to-br from-orange-500 to-red-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
@@ -613,7 +613,7 @@ export default function GenerateRecipePage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card 
-                  className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-0 shadow-lg shadow-orange-500/10 hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-300 cursor-pointer"
+                  className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-0 shadow-xl shadow-orange-500/10 dark:shadow-black/20 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 cursor-pointer"
                   onClick={() => handleSelectRecipe(recipe)}
                 >
                   <CardContent className="p-3 sm:p-6">

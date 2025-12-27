@@ -409,14 +409,14 @@ function StatCard({
   } as const
 
   return (
-    <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl hover:shadow-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all shadow-lg overflow-hidden">
+    <Card className="bg-white/95 dark:bg-slate-900/95 border border-slate-200/60 dark:border-slate-700/60 rounded-xl hover:shadow-xl hover:bg-white dark:hover:bg-slate-800 transition-all shadow-lg backdrop-blur-xl overflow-hidden">
       <CardContent className="p-4 sm:p-5 md:p-6">
         <div className={`inline-flex p-2 sm:p-3 md:p-4 rounded-xl bg-gradient-to-br ${colorClasses[color]} shadow-md mb-3 sm:mb-4`}>
           <div className="text-white">{icon}</div>
         </div>
         <div className="space-y-1 sm:space-y-2">
           <p className="text-mobile-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 truncate font-medium">{title}</p>
-          <p className="text-mobile-lg sm:text-xl md:text-2xl font-bold truncate text-gray-900 dark:text-gray-100">{value}</p>
+          <p className="text-mobile-lg sm:text-xl md:text-2xl font-bold truncate text-slate-900 dark:text-slate-100">{value}</p>
           <p className="text-mobile-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 truncate leading-relaxed">{trend}</p>
         </div>
       </CardContent>
@@ -442,12 +442,12 @@ function QuickActionCard({
       whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-2.5 sm:p-5 hover:shadow-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all text-left haptic-light shadow-lg"
+      className="bg-white/95 dark:bg-slate-900/95 border border-slate-200/60 dark:border-slate-700/60 rounded-xl p-2.5 sm:p-5 hover:shadow-xl hover:bg-white dark:hover:bg-slate-800 transition-all text-left haptic-light shadow-lg backdrop-blur-xl"
     >
       <div className={`inline-flex p-1.5 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${gradient} shadow-lg mb-2 sm:mb-3`}>
         <div className="text-white">{icon}</div>
       </div>
-      <h3 className="font-semibold text-xs md:text-sm lg:text-base mobile-text-xs mb-0.5 truncate leading-tight text-gray-900 dark:text-gray-100">{title}</h3>
+      <h3 className="font-semibold text-xs md:text-sm lg:text-base mobile-text-xs mb-0.5 truncate leading-tight text-slate-900 dark:text-slate-100">{title}</h3>
       <p className="text-xs mobile-text-xs text-gray-600 dark:text-gray-400 truncate leading-tight">{description}</p>
     </motion.button>
   )
@@ -512,7 +512,7 @@ function AlertCard({ item }: { item: AlertItem }) {
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-xs md:text-sm mobile-text-xs truncate text-gray-900 dark:text-gray-100">{item.name}</p>
+          <p className="font-semibold text-xs md:text-sm mobile-text-xs truncate text-slate-900 dark:text-slate-100">{item.name}</p>
           <p className="text-xs mobile-text-xs text-gray-600 dark:text-gray-400">{config.label}</p>
         </div>
       </div>

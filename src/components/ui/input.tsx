@@ -10,11 +10,11 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       className={cn(
         "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground",
         "h-10 sm:h-11 w-full min-w-0 rounded-lg sm:rounded-xl border border-gray-200/60 dark:border-slate-700/60",
-        "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-sm sm:shadow-lg",
+        "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-lg shadow-slate-900/5 dark:shadow-black/20 sm:shadow-xl sm:shadow-slate-900/10 dark:sm:shadow-black/30",
         "px-3 sm:px-4 py-2 sm:py-3 text-mobile-sm sm:text-base md:text-lg font-medium tracking-wide",
         "transition-all duration-300 ease-out outline-none",
         "placeholder:text-slate-400 dark:placeholder:text-slate-500",
-        "hover:border-gray-300/80 dark:hover:border-slate-600/80",
+        "hover:border-slate-300/80 dark:hover:border-slate-600/80",
         "focus:bg-white dark:focus:bg-slate-900",
         "focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/20 focus:shadow-xl",
         "text-slate-900 dark:text-slate-100",

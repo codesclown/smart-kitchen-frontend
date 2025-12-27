@@ -146,7 +146,7 @@ export default function MealPlanningPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing"
+      className="section-spacing bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-purple-950/30"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">
@@ -182,7 +182,7 @@ export default function MealPlanningPage() {
       </div>
 
       {/* Week Navigation */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardContent className="card-content-padding">
           <div className="flex items-center justify-between mb-3 sm:mb-4">
             <Button
@@ -249,7 +249,7 @@ export default function MealPlanningPage() {
       </Card>
 
       {/* Today's Meal Plan */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
@@ -316,7 +316,7 @@ export default function MealPlanningPage() {
       </Card>
 
       {/* Recipe Suggestions */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />

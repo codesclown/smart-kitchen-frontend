@@ -164,7 +164,7 @@ export default function WasteTrackingPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing"
+      className="section-spacing bg-gradient-to-br from-slate-50 via-white to-green-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-green-950/30"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">
@@ -218,7 +218,7 @@ export default function WasteTrackingPage() {
       </div>
 
       {/* Waste Goal Progress */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
@@ -266,7 +266,7 @@ export default function WasteTrackingPage() {
 
       {/* Waste Statistics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        <Card className="card-premium hover:shadow-md transition-all">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover:shadow-md transition-all">
           <CardContent className="card-content-padding text-center">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-red-100 dark:bg-red-950/30 flex items-center justify-center mx-auto mb-2">
               <Trash2 className="w-4 h-4 sm:w-5 sm:h-5 text-red-600" />
@@ -288,7 +288,7 @@ export default function WasteTrackingPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-premium hover:shadow-md transition-all">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover:shadow-md transition-all">
           <CardContent className="card-content-padding text-center">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-yellow-100 dark:bg-yellow-950/30 flex items-center justify-center mx-auto mb-2">
               <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
@@ -299,7 +299,7 @@ export default function WasteTrackingPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-premium hover:shadow-md transition-all">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover:shadow-md transition-all">
           <CardContent className="card-content-padding text-center">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-100 dark:bg-orange-950/30 flex items-center justify-center mx-auto mb-2">
               <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" />
@@ -312,7 +312,7 @@ export default function WasteTrackingPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-premium hover:shadow-md transition-all">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 hover:shadow-md transition-all">
           <CardContent className="card-content-padding text-center">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-green-100 dark:bg-green-950/30 flex items-center justify-center mx-auto mb-2">
               <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
@@ -325,7 +325,7 @@ export default function WasteTrackingPage() {
       </div>
 
       {/* Top Waste Categories */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -365,7 +365,7 @@ export default function WasteTrackingPage() {
       </Card>
 
       {/* Recent Waste Entries */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
@@ -424,7 +424,7 @@ export default function WasteTrackingPage() {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
         >
-          <Card className="card-premium">
+          <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
             <CardHeader className="card-header-padding">
               <CardTitle className="text-sm sm:text-lg">Log Food Waste</CardTitle>
             </CardHeader>
@@ -574,7 +574,7 @@ export default function WasteTrackingPage() {
       )}
 
       {/* Waste Reduction Tips */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <Award className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />

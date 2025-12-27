@@ -208,7 +208,7 @@ export default function KitchenTimerPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing"
+      className="section-spacing bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950/30"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">
@@ -259,7 +259,7 @@ export default function KitchenTimerPage() {
       </div>
 
       {/* Quick Presets */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="text-sm sm:text-lg">Quick Presets</CardTitle>
         </CardHeader>
@@ -309,7 +309,7 @@ export default function KitchenTimerPage() {
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className={`card-premium ${timer.isCompleted ? 'border-green-500 bg-green-50 dark:bg-green-950/20' : ''}`}>
+                  <Card className={`bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20 ${timer.isCompleted ? 'border-green-500 bg-green-50 dark:bg-green-950/20' : ''}`}>
                     <CardContent className="card-content-padding">
                       <div className="flex items-center gap-3 sm:gap-4">
                         <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${timer.color} flex items-center justify-center text-white shadow-lg`}>
@@ -402,7 +402,7 @@ export default function KitchenTimerPage() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            <Card className="card-premium">
+            <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
               <CardHeader className="card-header-padding">
                 <CardTitle className="text-sm sm:text-lg">Add Custom Timer</CardTitle>
               </CardHeader>
@@ -515,7 +515,7 @@ export default function KitchenTimerPage() {
 
       {/* Empty State */}
       {timers.length === 0 && !showAddTimer && (
-        <Card className="card-premium">
+        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
           <CardContent className="card-content-padding text-center">
             <Timer className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground mx-auto mb-3 sm:mb-4" />
             <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">No Active Timers</h3>

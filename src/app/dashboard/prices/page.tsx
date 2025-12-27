@@ -253,7 +253,7 @@ export default function PriceComparisonPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="section-spacing page-container page-padding"
+      className="section-spacing page-container page-padding bg-gradient-to-br from-slate-50 via-white to-green-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-green-950/30"
     >
       {/* Header */}
       <div className="flex items-center gap-3 sm:gap-4">
@@ -334,7 +334,7 @@ export default function PriceComparisonPage() {
           const savings = worstPrice - bestPrice
 
           return (
-            <Card key={itemName} className="card-premium">
+            <Card key={itemName} className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
@@ -471,7 +471,7 @@ export default function PriceComparisonPage() {
       )}
 
       {/* Price Alerts */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
             <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5" />

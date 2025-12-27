@@ -93,14 +93,14 @@ export default function RegisterPage() {
             <h1 className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600 dark:from-emerald-400 dark:via-emerald-500 dark:to-blue-400 bg-clip-text text-transparent">
               Create Account
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm md:text-base">
               Join Smart Kitchen Manager and organize your kitchen
             </p>
           </div>
         </div>
 
         {/* Register Card */}
-        <Card className="border-0 shadow-xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
+        <Card className="border-0 shadow-xl shadow-slate-900/10 dark:shadow-black/30 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl">
           <CardContent className="p-4 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Error Message */}
@@ -108,7 +108,7 @@ export default function RegisterPage() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95, y: -10 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 text-xs sm:text-sm text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg sm:rounded-xl"
+                  className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 text-xs sm:text-sm text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200/60 dark:border-red-800/60 rounded-lg sm:rounded-xl backdrop-blur-sm"
                 >
                   <AlertCircle className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                   <span>{error.message}</span>
@@ -117,7 +117,7 @@ export default function RegisterPage() {
 
               {/* Name Field */}
               <div className="space-y-2 sm:space-y-3">
-                <Label htmlFor="name" className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-200">
+                <Label htmlFor="name" className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
                   Full Name
                 </Label>
                 <div className="relative group">
@@ -129,7 +129,7 @@ export default function RegisterPage() {
                     placeholder="Enter your full name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200"
+                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-slate-200/60 dark:border-slate-600/60 bg-white/95 dark:bg-slate-700/95 text-slate-900 dark:text-slate-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 backdrop-blur-xl"
                     required
                   />
                 </div>
@@ -137,7 +137,7 @@ export default function RegisterPage() {
 
               {/* Email Field */}
               <div className="space-y-2 sm:space-y-3">
-                <Label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-200">
+                <Label htmlFor="email" className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
                   Email Address
                 </Label>
                 <div className="relative group">
@@ -149,7 +149,7 @@ export default function RegisterPage() {
                     placeholder="Enter your email address"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200"
+                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 text-sm sm:text-base md:text-sm border-slate-200/60 dark:border-slate-600/60 bg-white/95 dark:bg-slate-700/95 text-slate-900 dark:text-slate-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 backdrop-blur-xl"
                     required
                   />
                 </div>
@@ -157,7 +157,7 @@ export default function RegisterPage() {
 
               {/* Password Field */}
               <div className="space-y-2 sm:space-y-3">
-                <Label htmlFor="password" className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-200">
+                <Label htmlFor="password" className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
                   Password
                 </Label>
                 <div className="relative group">
@@ -169,7 +169,7 @@ export default function RegisterPage() {
                     placeholder="Create a password (min. 6 characters)"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 pr-11 sm:pr-12 md:pr-11 text-sm sm:text-base md:text-sm border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200"
+                    className="!h-11 !min-h-[44px] sm:!h-12 sm:!min-h-[48px] md:!h-11 md:!min-h-[44px] !py-2.5 !px-4 pl-11 sm:pl-12 md:pl-11 pr-11 sm:pr-12 md:pr-11 text-sm sm:text-base md:text-sm border-slate-200/60 dark:border-slate-600/60 bg-white/95 dark:bg-slate-700/95 text-slate-900 dark:text-slate-100 !rounded-lg sm:!rounded-xl md:!rounded-lg focus:border-emerald-500 focus:ring-emerald-500/20 transition-all duration-200 backdrop-blur-xl"
                     required
                     minLength={6}
                   />
@@ -211,7 +211,7 @@ export default function RegisterPage() {
 
         {/* Footer Links */}
         <div className="text-center">
-          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
             Already have an account?{' '}
             <Link
               href="/login"

@@ -261,7 +261,7 @@ export default function UnitConverterPage() {
       </div>
 
       {/* Converter */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-lg">
             <CategoryIcon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -372,7 +372,7 @@ export default function UnitConverterPage() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-3 sm:p-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 rounded-xl border"
+                className="p-3 sm:p-4 bg-gradient-to-r from-purple-50/80 to-blue-50/80 dark:from-purple-950/30 dark:to-blue-950/30 rounded-xl border border-purple-200/60 dark:border-purple-800/60 shadow-sm backdrop-blur-sm"
               >
                 <div className="text-center">
                   <p className="text-xs sm:text-sm text-muted-foreground mb-1">Result</p>
@@ -387,7 +387,7 @@ export default function UnitConverterPage() {
       </Card>
 
       {/* Common Conversions */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="text-sm sm:text-lg">Common Kitchen Conversions</CardTitle>
         </CardHeader>
@@ -402,7 +402,7 @@ export default function UnitConverterPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Card className="cursor-pointer hover:shadow-md transition-all">
+                  <Card className="cursor-pointer hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-black/30 transition-all bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-slate-200/60 dark:border-slate-700/60">
                     <CardContent className="p-2 sm:p-3">
                       <div className="flex items-center gap-2 sm:gap-3">
                         <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
@@ -430,25 +430,25 @@ export default function UnitConverterPage() {
       </Card>
 
       {/* Quick Reference */}
-      <Card className="card-premium">
+      <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-900/5 dark:shadow-black/20">
         <CardHeader className="card-header-padding">
           <CardTitle className="text-sm sm:text-lg">Quick Reference</CardTitle>
         </CardHeader>
         <CardContent className="card-content-padding">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center">
-            <div className="p-2 sm:p-3 bg-muted/50 rounded-lg">
+            <div className="p-2 sm:p-3 bg-slate-50/80 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-sm">
               <p className="text-[9px] sm:text-xs text-muted-foreground">Volume</p>
               <p className="text-xs sm:text-sm font-semibold">3 tsp = 1 tbsp</p>
             </div>
-            <div className="p-2 sm:p-3 bg-muted/50 rounded-lg">
+            <div className="p-2 sm:p-3 bg-slate-50/80 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-sm">
               <p className="text-[9px] sm:text-xs text-muted-foreground">Volume</p>
               <p className="text-xs sm:text-sm font-semibold">16 tbsp = 1 cup</p>
             </div>
-            <div className="p-2 sm:p-3 bg-muted/50 rounded-lg">
+            <div className="p-2 sm:p-3 bg-slate-50/80 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-sm">
               <p className="text-[9px] sm:text-xs text-muted-foreground">Weight</p>
               <p className="text-xs sm:text-sm font-semibold">16 oz = 1 lb</p>
             </div>
-            <div className="p-2 sm:p-3 bg-muted/50 rounded-lg">
+            <div className="p-2 sm:p-3 bg-slate-50/80 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-sm">
               <p className="text-[9px] sm:text-xs text-muted-foreground">Temperature</p>
               <p className="text-xs sm:text-sm font-semibold">°F = °C × 9/5 + 32</p>
             </div>

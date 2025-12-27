@@ -8,16 +8,104 @@ export const ME_QUERY = gql`
       email
       name
       avatar
+      phone
+      location
+      settings {
+        id
+        notifications {
+          lowStock
+          expiry
+          shopping
+          mealPlan
+          push
+          email
+          sms
+        }
+        privacy {
+          profileVisibility
+          dataSharing
+          analyticsOptOut
+        }
+      }
+      preferences {
+        theme
+        language
+        currency
+        timezone
+        dateFormat
+      }
       households {
         id
         household {
           id
           name
           description
+          inviteCode
         }
         role
       }
     }
+  }
+`;
+
+// Settings Queries
+export const GET_USER_SETTINGS = gql`
+  query GetUserSettings {
+    userSettings {
+      id
+      notifications {
+        lowStock
+        expiry
+        shopping
+        mealPlan
+        push
+        email
+        sms
+      }
+      privacy {
+        profileVisibility
+        dataSharing
+        analyticsOptOut
+      }
+    }
+  }
+`;
+
+export const GET_USER_PREFERENCES = gql`
+  query GetUserPreferences {
+    userPreferences {
+      theme
+      language
+      currency
+      timezone
+      dateFormat
+    }
+  }
+`;
+
+// Settings Mutations
+export const UPDATE_USER_PROFILE = gql`
+  mutation UpdateUserProfile($input: UpdateUserProfileInput!) {
+    updateUserProfile(input: $input) {
+      id
+      name
+      email
+      phone
+      location
+      avatar
+    }
+  }
+`;
+
+export const UPDATE_USER_SETTINGS = gql`
+  mutation UpdateUserSettings($input: UpdateUserSettingsInput!) {
+    updateUserSettings(input: $input)
+  }
+`;
+
+export const UPDATE_USER_PREFERENCES = gql`
+  mutation UpdateUserPreferences($input: UpdateUserPreferencesInput!) {
+    updateUserPreferences(input: $input)
   }
 `;
 
@@ -28,14 +116,17 @@ export const GET_HOUSEHOLDS = gql`
       id
       name
       description
+      inviteCode
       kitchens {
         id
         name
         type
+        description
       }
       members {
         id
         role
+        joinedAt
         user {
           id
           name
@@ -43,6 +134,7 @@ export const GET_HOUSEHOLDS = gql`
         }
       }
       createdAt
+      updatedAt
     }
   }
 `;

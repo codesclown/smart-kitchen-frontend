@@ -238,6 +238,10 @@ export function InventoryTab() {
 
   const locations = ["All", "Fridge", "Freezer", "Pantry", "Counter"];
 
+  const availableTags = Array.from(
+    new Set(items.flatMap(item => item.tags || []))
+  ).filter(Boolean);
+
   const handleResetFilters = () => {
     setSearchQuery("");
     setSelectedCategory("All");
@@ -707,111 +711,130 @@ export function InventoryTab() {
             placeholder="Search items..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 sm:pl-10 pr-4 h-9 sm:h-11 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl shadow-sm focus:bg-white dark:focus:bg-gray-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200 text-[10px] sm:text-sm"
+            className="w-full pl-9 sm:pl-10 pr-4 h-9 sm:h-11 bg-white/95 dark:bg-slate-900/95 border border-slate-200/60 dark:border-slate-700/60 rounded-lg sm:rounded-xl shadow-lg shadow-slate-900/5 dark:shadow-black/20 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200 text-[10px] sm:text-sm backdrop-blur-xl"
           />
         </div>
 
-        {/* Filter Controls */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
-          {/* Location Filter */}
-          <div>
-            <label className="text-[9px] sm:text-xs font-medium text-muted-foreground block mb-1 sm:mb-2">
-              Location
-            </label>
-            <select
-              value={selectedLocation}
-              onChange={(e) => setSelectedLocation(e.target.value)}
-              className="w-full h-8 sm:h-10 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 text-[10px] sm:text-sm"
+        {/* Mobile-Friendly Filter Controls */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          {/* Mobile Filter Button */}
+          <div className="sm:hidden">
+            <Button
+              variant="outline"
+              onClick={() => setFiltersOpen(true)}
+              className="w-full h-11 justify-between text-mobile-sm"
             >
-              {locations.map((loc) => (
-                <option key={loc} value={loc}>
-                  {loc === "All"
-                    ? "All Locations"
-                    : loc === "Fridge"
-                      ? "🧊 Fridge"
-                      : loc === "Freezer"
-                        ? "❄️ Freezer"
-                        : loc === "Pantry"
-                          ? "📦 Pantry"
-                          : "🛋️ Counter"}
-                </option>
-              ))}
-            </select>
+              <span className="flex items-center gap-2">
+                <Search className="w-4 h-4" />
+                Filters & Sort
+              </span>
+              <span className="text-xs text-muted-foreground">
+                {Object.values(filters).some(v => Array.isArray(v) ? v.length > 0 : v) ? 'Active' : 'None'}
+              </span>
+            </Button>
           </div>
 
-          {/* Sort Filter */}
-          <div>
-            <label className="text-[9px] sm:text-xs font-medium text-muted-foreground block mb-1 sm:mb-2">
-              Sort by
-            </label>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="w-full h-8 sm:h-10 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 text-[10px] sm:text-sm"
-            >
-              <option value="expiry">Expiry (soonest)</option>
-              <option value="qtyAsc">Quantity: low → high</option>
-              <option value="qtyDesc">Quantity: high → low</option>
-              <option value="name">Name A → Z</option>
-              <option value="heat">Heat Index (high → low)</option>
-            </select>
-          </div>
-
-          {/* View Mode */}
-          <div>
-            <label className="text-[9px] sm:text-xs font-medium text-muted-foreground block mb-1 sm:mb-2">
-              View
-            </label>
-            <div className="flex gap-1 sm:gap-2">
-              <Button
-                type="button"
-                variant={viewMode === "grid" ? "default" : "outline"}
-                size="sm"
-                className="flex-1 h-8 sm:h-10 text-[9px] sm:text-sm"
-                onClick={() => setViewMode("grid")}
+          {/* Desktop Filter Controls */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 flex-1">
+            {/* Location Filter */}
+            <div>
+              <label className="text-xs font-medium text-muted-foreground block mb-2">
+                Location
+              </label>
+              <select
+                value={selectedLocation}
+                onChange={(e) => setSelectedLocation(e.target.value)}
+                className="w-full h-10 bg-white/95 dark:bg-slate-900/95 border border-slate-200/60 dark:border-slate-700/60 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 text-sm backdrop-blur-xl shadow-sm"
               >
-                <LayoutGrid className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                Grid
-              </Button>
-              <Button
-                type="button"
-                variant={viewMode === "list" ? "default" : "outline"}
-                size="sm"
-                className="flex-1 h-8 sm:h-10 text-[9px] sm:text-sm"
-                onClick={() => setViewMode("list")}
-              >
-                <List className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                List
-              </Button>
+                {locations.map((loc) => (
+                  <option key={loc} value={loc}>
+                    {loc === "All"
+                      ? "All Locations"
+                      : loc === "Fridge"
+                        ? "🧊 Fridge"
+                        : loc === "Freezer"
+                          ? "❄️ Freezer"
+                          : loc === "Pantry"
+                            ? "📦 Pantry"
+                            : "🛋️ Counter"}
+                  </option>
+                ))}
+              </select>
             </div>
-          </div>
 
-          {/* Actions */}
-          <div>
-            <label className="text-[9px] sm:text-xs font-medium text-muted-foreground block mb-1 sm:mb-2">
-              Actions
-            </label>
-            <div className="flex gap-1 sm:gap-2">
-              <Button
-                type="button"
-                variant={multiSelectMode ? "default" : "outline"}
-                size="sm"
-                className="flex-1 h-8 sm:h-10 text-[9px] sm:text-sm"
-                onClick={() => setMultiSelectMode((prev) => !prev)}
+            {/* Sort Filter */}
+            <div>
+              <label className="text-xs font-medium text-muted-foreground block mb-2">
+                Sort by
+              </label>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as SortOption)}
+                className="w-full h-10 bg-white/95 dark:bg-slate-900/95 border border-slate-200/60 dark:border-slate-700/60 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 text-sm backdrop-blur-xl shadow-sm"
               >
-                <CheckSquare className="w-4 h-4 mr-2" />
-                Select
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                className="mobile-btn h-10 px-3"
-                onClick={handleResetFilters}
-                title="Reset filters"
-              >
-                <RotateCcw className="w-4 h-4" />
-              </Button>
+                <option value="expiry">Expiry (soonest)</option>
+                <option value="qtyAsc">Quantity: low → high</option>
+                <option value="qtyDesc">Quantity: high → low</option>
+                <option value="name">Name A → Z</option>
+                <option value="heat">Heat Index (high → low)</option>
+              </select>
+            </div>
+
+            {/* View Mode */}
+            <div>
+              <label className="text-xs font-medium text-muted-foreground block mb-2">
+                View
+              </label>
+              <div className="flex gap-2">
+                <Button
+                  type="button"
+                  variant={viewMode === "grid" ? "default" : "outline"}
+                  size="sm"
+                  className="flex-1 h-10 text-sm"
+                  onClick={() => setViewMode("grid")}
+                >
+                  <LayoutGrid className="w-4 h-4 mr-2" />
+                  Grid
+                </Button>
+                <Button
+                  type="button"
+                  variant={viewMode === "list" ? "default" : "outline"}
+                  size="sm"
+                  className="flex-1 h-10 text-sm"
+                  onClick={() => setViewMode("list")}
+                >
+                  <List className="w-4 h-4 mr-2" />
+                  List
+                </Button>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div>
+              <label className="text-xs font-medium text-muted-foreground block mb-2">
+                Actions
+              </label>
+              <div className="flex gap-2">
+                <Button
+                  type="button"
+                  variant={multiSelectMode ? "default" : "outline"}
+                  size="sm"
+                  className="flex-1 h-10 text-sm"
+                  onClick={() => setMultiSelectMode((prev) => !prev)}
+                >
+                  <CheckSquare className="w-4 h-4 mr-2" />
+                  Select
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-10 px-3"
+                  onClick={handleResetFilters}
+                  title="Reset filters"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -828,7 +851,7 @@ export function InventoryTab() {
                 className={
                   selectedCategory === cat
                     ? "bg-gradient-to-r from-emerald-500 to-green-600 text-white border-0 shadow-lg shrink-0 h-10 sm:h-11 px-4 sm:px-5 text-mobile-sm sm:text-base font-semibold"
-                    : "shrink-0 h-10 sm:h-11 px-4 sm:px-5 text-mobile-sm sm:text-base border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    : "shrink-0 h-10 sm:h-11 px-4 sm:px-5 text-mobile-sm sm:text-base border-slate-200/60 dark:border-slate-700/60 bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 backdrop-blur-xl shadow-sm hover:shadow-md transition-all"
                 }
               >
                 {cat}
@@ -1136,6 +1159,19 @@ export function InventoryTab() {
           setIsEditOpen(false);
           setDetailsOpen(false);
         }}
+      />
+
+      {/* Mobile Filters Drawer */}
+      <FiltersDrawer
+        open={filtersOpen}
+        onClose={() => setFiltersOpen(false)}
+        filters={filters}
+        setFilters={setFilters}
+        resetFilters={resetFilters}
+        categories={categories}
+        locations={locations}
+        availableTags={availableTags}
+        matchCount={filteredItems.length}
       />
     </motion.div>
   );
