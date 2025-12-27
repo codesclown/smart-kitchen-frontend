@@ -290,6 +290,12 @@ export const GET_EXPENSE_STATS = gql`
   }
 `;
 
+export const GET_PRICE_TRENDS = gql`
+  query GetPriceTrends($kitchenId: ID!, $days: Int = 30) {
+    priceTrends(kitchenId: $kitchenId, days: $days)
+  }
+`;
+
 // Reminder Queries
 export const GET_REMINDERS = gql`
   query GetReminders($kitchenId: ID!) {

@@ -299,7 +299,7 @@ export function ShoppingTab() {
           </div>
 
           {/* Action buttons */}
-          <div className="flex flex-wrap gap-2 sm:gap-3">
+          <div className="grid grid-cols-2 sm:flex gap-2 sm:gap-3">
             <Button
               variant="outline"
               size="sm"
@@ -307,7 +307,7 @@ export function ShoppingTab() {
                 haptic.light();
                 setIsScheduleOpen(true);
               }}
-              className="flex-1 sm:flex-none h-11 sm:h-12 text-mobile-sm sm:text-base"
+              className="h-11 sm:h-12 text-mobile-sm sm:text-base"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Schedule
@@ -316,7 +316,7 @@ export function ShoppingTab() {
             <Button
               variant="outline"
               size="sm"
-              className="flex-1 sm:flex-none h-11 sm:h-12 text-mobile-sm sm:text-base border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400
+              className="h-11 sm:h-12 text-mobile-sm sm:text-base border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400
                 hover:bg-purple-500/20 hover:border-purple-500/30"
               onClick={() => {
                 haptic.light();
@@ -330,7 +330,7 @@ export function ShoppingTab() {
             <Button
               variant="outline"
               size="sm"
-              className="flex-1 sm:flex-none h-11 sm:h-12 text-mobile-sm sm:text-base border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
+              className="h-11 sm:h-12 text-mobile-sm sm:text-base border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
                 hover:bg-emerald-500/20 hover:border-emerald-500/30"
               onClick={handleAutoGenerate}
               disabled={autoGenerating}
@@ -349,7 +349,7 @@ export function ShoppingTab() {
                 haptic.medium();
                 setIsNewListOpen(true);
               }}
-              className="flex-1 sm:flex-none h-11 sm:h-12 text-mobile-sm sm:text-base bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-lg"
+              className="h-11 sm:h-12 text-mobile-sm sm:text-base bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-lg"
             >
               <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               New List

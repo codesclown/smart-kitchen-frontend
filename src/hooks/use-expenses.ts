@@ -3,7 +3,8 @@
 import { useQuery, useMutation } from '@apollo/client';
 import { 
   GET_EXPENSES, 
-  GET_EXPENSE_STATS 
+  GET_EXPENSE_STATS,
+  GET_PRICE_TRENDS
 } from '@/lib/graphql/queries';
 import { 
   CREATE_EXPENSE_MUTATION, 
@@ -35,29 +36,46 @@ export function useExpenses(limit = 50) {
     errorPolicy: 'all',
   });
 
+  const { 
+    data: trendsData, 
+    loading: trendsLoading 
+  } = useQuery(GET_PRICE_TRENDS, {
+    variables: { kitchenId: kitchenId || '', days: 30 },
+    skip: !kitchenId,
+    errorPolicy: 'all',
+  });
+
   const [createExpense] = useMutation(CREATE_EXPENSE_MUTATION, {
-    refetchQueries: [GET_EXPENSES, GET_EXPENSE_STATS],
+    refetchQueries: [GET_EXPENSES, GET_EXPENSE_STATS, GET_PRICE_TRENDS],
   });
 
   const [updateExpense] = useMutation(UPDATE_EXPENSE_MUTATION, {
-    refetchQueries: [GET_EXPENSES, GET_EXPENSE_STATS],
+    refetchQueries: [GET_EXPENSES, GET_EXPENSE_STATS, GET_PRICE_TRENDS],
   });
 
   const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION, {
-    refetchQueries: [GET_EXPENSES, GET_EXPENSE_STATS],
+    refetchQueries: [GET_EXPENSES, GET_EXPENSE_STATS, GET_PRICE_TRENDS],
   });
 
   const expenses = data?.expenses || [];
   const stats = statsData?.expenseStats || {};
+  const priceTrends = trendsData?.priceTrends || {};
 
   // Helper functions
   const addExpense = async (expenseData: any) => {
     if (!kitchenId) throw new Error('No kitchen selected');
     
-    // Convert date string to proper DateTime format
+    // Only include fields that are supported by the backend schema
     const processedData = {
-      ...expenseData,
       kitchenId,
+      type: expenseData.type,
+      amount: expenseData.amount,
+      vendor: expenseData.vendor,
+      date: expenseData.date,
+      billImageUrl: expenseData.billImageUrl,
+      items: expenseData.items,
+      notes: expenseData.description || expenseData.notes, // Map description to notes
+      category: expenseData.category,
     };
 
     // If date is provided as date-only string, convert to DateTime
@@ -107,9 +125,10 @@ export function useExpenses(limit = 50) {
     // Data
     expenses,
     stats: Object.keys(stats).length > 0 ? stats : calculatedStats,
+    priceTrends,
     
     // Loading states
-    loading: loading || statsLoading,
+    loading: loading || statsLoading || trendsLoading,
     error,
     
     // Actions
