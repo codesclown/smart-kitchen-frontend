@@ -277,7 +277,7 @@ export function HomeTab() {
       {/* Alerts & Reminders */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Needs Attention */}
-        <Card className="mobile-card sm:card-premium">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardHeader className="pb-2 sm:pb-4">
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-1.5 text-sm md:text-base lg:text-lg mobile-text-sm">
@@ -323,7 +323,7 @@ export function HomeTab() {
         </Card>
 
         {/* Upcoming Reminders */}
-        <Card className="mobile-card sm:card-premium">
+        <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl">
           <CardHeader className="pb-2 sm:pb-4">
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-1.5 text-sm md:text-base lg:text-lg mobile-text-sm">
@@ -346,7 +346,7 @@ export function HomeTab() {
                 // TODO: Call smart reminders generation API
                 router.push("/dashboard/reminders");
               }}
-              className="mobile-btn-sm w-full mt-2 sm:mt-3"
+              className="w-full mt-2 sm:mt-3 h-10 sm:h-11 text-xs sm:text-sm border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/30 shadow-lg"
             >
               <Sparkles className="w-3 h-3 mr-1" />
               Generate Smart Reminders
@@ -373,12 +373,12 @@ export function HomeTab() {
               </motion.div>
             ))}
             {reminders.length === 0 && (
-              <div className="flex flex-col items-center justify-center py-8 text-center">
-                <div className="w-12 h-12 mb-3 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                  <Bell className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 flex items-center justify-center shadow-lg">
+                  <Bell className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <p className="text-sm mobile-text-sm font-medium mb-1">No reminders set</p>
-                <p className="text-xs mobile-text-xs text-muted-foreground">Create reminders to stay organized</p>
+                <p className="text-base font-semibold mb-2 text-foreground">No reminders set</p>
+                <p className="text-sm text-muted-foreground max-w-xs">Create reminders to stay organized and never miss important tasks</p>
               </div>
             )}
           </CardContent>
@@ -409,7 +409,7 @@ function StatCard({
   } as const
 
   return (
-    <Card className="bg-white/95 dark:bg-slate-900/95 border border-slate-200/60 dark:border-slate-700/60 rounded-xl hover:shadow-xl hover:bg-white dark:hover:bg-slate-800 transition-all shadow-lg backdrop-blur-xl overflow-hidden">
+    <Card className="bg-white dark:bg-slate-900 border border-gray-200/40 dark:border-slate-700/40 shadow-xl hover:shadow-2xl transition-all overflow-hidden">
       <CardContent className="p-4 sm:p-5 md:p-6">
         <div className={`inline-flex p-2 sm:p-3 md:p-4 rounded-xl bg-gradient-to-br ${colorClasses[color]} shadow-md mb-3 sm:mb-4`}>
           <div className="text-white">{icon}</div>

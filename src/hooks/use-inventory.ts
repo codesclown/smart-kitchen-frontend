@@ -81,22 +81,6 @@ export function useInventory() {
   const lowStockItems = lowStockData?.lowStockItems || [];
   const expiringItems = expiringData?.expiringItems || [];
 
-  // Transform GraphQL data to match component expectations
-  const transformedItems = items.map((item: any) => ({
-    id: item.id,
-    name: item.name,
-    quantity: item.batches?.reduce((sum: number, batch: any) => sum + batch.quantity, 0) || 0,
-    unit: item.defaultUnit || 'pieces',
-    status: item.batches?.some((batch: any) => new Date(batch.expiryDate) < new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)) ? 'EXPIRING' : 'OK',
-    expiry: item.batches?.[0]?.expiryDate || null,
-    location: item.location || 'Pantry',
-    img: getCategoryEmoji(item.category),
-    qty: item.batches?.reduce((sum: number, batch: any) => sum + batch.quantity, 0) || 0,
-    category: item.category,
-    brand: item.brand,
-    threshold: item.threshold
-  }));
-
   // Helper function to get emoji based on category
   const getCategoryEmoji = (category: string) => {
     const categoryEmojis: { [key: string]: string } = {
@@ -116,6 +100,22 @@ export function useInventory() {
     };
     return categoryEmojis[category] || '📦';
   }; 
+
+  // Transform GraphQL data to match component expectations
+  const transformedItems = items.map((item: any) => ({
+    id: item.id,
+    name: item.name,
+    quantity: item.batches?.reduce((sum: number, batch: any) => sum + batch.quantity, 0) || 0,
+    unit: item.defaultUnit || 'pieces',
+    status: item.batches?.some((batch: any) => new Date(batch.expiryDate) < new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)) ? 'EXPIRING' : 'OK',
+    expiry: item.batches?.[0]?.expiryDate || null,
+    location: item.location || 'Pantry',
+    img: getCategoryEmoji(item.category),
+    qty: item.batches?.reduce((sum: number, batch: any) => sum + batch.quantity, 0) || 0,
+    category: item.category,
+    brand: item.brand,
+    threshold: item.threshold
+  })); 
   
   // Use real data from GraphQL queries
   const finalItems = transformedItems;
@@ -124,12 +124,16 @@ export function useInventory() {
   const addItem = async (itemData: any) => {
     if (!kitchenId) throw new Error('No kitchen selected');
     
+    const finalData = {
+      ...itemData,
+      kitchenId,
+    };
+    
+    console.log('GraphQL mutation input:', finalData);
+    
     return createItem({
       variables: {
-        input: {
-          ...itemData,
-          kitchenId,
-        },
+        input: finalData,
       },
     });
   };

@@ -57,7 +57,7 @@
     --radius: 0.75rem;
     
     /* Mobile Navigation Clearance */
-    --mobile-nav-height: 7rem;
+    --mobile-nav-height: 12rem;
     
     /* Chart Colors */
     --chart-1: 158 64% 47%;            /* Emerald */
@@ -712,7 +712,7 @@
   }
   /* Mobile safe area and navigation clearance - ENHANCED */
   .mobile-nav-clearance {
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px));
   }
   
   /* Ensure content is never hidden by mobile nav - USING CSS CUSTOM PROPERTY */
@@ -720,6 +720,8 @@
     .main-content {
       padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px)) !important;
       min-height: calc(100vh - 8rem);
+      /* Debug: Add visible bottom border to see padding */
+      border-bottom: 4px solid red !important;
     }
     
     /* Additional fallback for bottom spacing */

@@ -8,7 +8,8 @@ import {
 import { 
   CREATE_REMINDER_MUTATION, 
   UPDATE_REMINDER_MUTATION, 
-  DELETE_REMINDER_MUTATION 
+  DELETE_REMINDER_MUTATION,
+  GENERATE_SMART_REMINDERS_MUTATION 
 } from '@/lib/graphql/mutations';
 import { useCurrentKitchen } from './use-kitchen';
 
@@ -44,6 +45,10 @@ export function useReminders() {
   });
 
   const [deleteReminder] = useMutation(DELETE_REMINDER_MUTATION, {
+    refetchQueries: [GET_REMINDERS, GET_UPCOMING_REMINDERS],
+  });
+
+  const [generateSmartReminders] = useMutation(GENERATE_SMART_REMINDERS_MUTATION, {
     refetchQueries: [GET_REMINDERS, GET_UPCOMING_REMINDERS],
   });
 
@@ -87,6 +92,14 @@ export function useReminders() {
     return editReminder(id, false);
   };
 
+  const generateSmartRemindersAction = async () => {
+    if (!kitchenId) throw new Error('No kitchen selected');
+    
+    return generateSmartReminders({
+      variables: { kitchenId },
+    });
+  };
+
   return {
     // Data
     reminders,
@@ -102,6 +115,7 @@ export function useReminders() {
     removeReminder,
     completeReminder,
     uncompleteReminder,
+    generateSmartRemindersAction,
     refetch,
     
     // Stats

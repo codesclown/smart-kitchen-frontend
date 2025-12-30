@@ -30,7 +30,7 @@ interface ItemForm {
   quantity: number
   unit: string
   category: string
-  location: string
+  location: 'PANTRY' | 'FRIDGE' | 'FREEZER' | 'CABINET'
   expiryDate: string
   notes: string
   threshold: number
@@ -41,7 +41,7 @@ const categories = [
   'Spices & Condiments', 'Beverages', 'Snacks', 'Frozen', 'Other'
 ]
 
-const locations = ['Fridge', 'Freezer', 'Pantry', 'Counter']
+const locations: ('FRIDGE' | 'FREEZER' | 'PANTRY' | 'CABINET')[] = ['FRIDGE', 'FREEZER', 'PANTRY', 'CABINET']
 
 const units = ['pcs', 'kg', 'g', 'L', 'ml', 'cups', 'tbsp', 'tsp', 'packets', 'bottles']
 
@@ -49,7 +49,7 @@ export default function AddInventoryPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const haptic = useHapticFeedback()
-  const { addItem } = useInventory()
+  const { addItem, addBatch } = useInventory()
   
   const [loading, setLoading] = useState(false)
   const [showBarcodeScanner, setShowBarcodeScanner] = useState(false)
@@ -59,7 +59,7 @@ export default function AddInventoryPage() {
     quantity: 1,
     unit: 'pcs',
     category: 'Other',
-    location: 'Pantry',
+    location: 'PANTRY' as const,
     expiryDate: '',
     notes: '',
     threshold: 1
@@ -69,16 +69,45 @@ export default function AddInventoryPage() {
 
   useEffect(() => {
     if (isScanned) {
-      // Simulate scanned data
-      setForm(prev => ({
-        ...prev,
-        name: 'Tomatoes',
-        quantity: 2,
-        unit: 'kg',
-        category: 'Vegetables',
-        location: 'Fridge',
-        expiryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-      }))
+      // Get real scanned data from localStorage
+      const scannedData = localStorage.getItem('scannedItemData')
+      if (scannedData) {
+        try {
+          const data = JSON.parse(scannedData)
+          setForm(prev => ({
+            ...prev,
+            name: data.name || 'Scanned Item',
+            quantity: data.quantity || 1,
+            unit: data.unit || 'pcs',
+            category: data.category || 'Other',
+            location: 'PANTRY', // Default location in enum format
+            expiryDate: data.expiryDate || ''
+          }))
+          // Clear the data after using it
+          localStorage.removeItem('scannedItemData')
+        } catch (error) {
+          console.error('Failed to parse scanned data:', error)
+          // Fallback to default data
+          setForm(prev => ({
+            ...prev,
+            name: 'Scanned Item',
+            quantity: 1,
+            unit: 'pcs',
+            category: 'Other',
+            location: 'PANTRY'
+          }))
+        }
+      } else {
+        // Fallback if no data found
+        setForm(prev => ({
+          ...prev,
+          name: 'Scanned Item',
+          quantity: 1,
+          unit: 'pcs',
+          category: 'Other',
+          location: 'PANTRY'
+        }))
+      }
     }
   }, [isScanned])
 
@@ -90,21 +119,45 @@ export default function AddInventoryPage() {
     haptic.medium()
 
     try {
-      await addItem({
-        name: form.name,
-        totalQuantity: form.quantity,
-        defaultUnit: form.unit,
+      console.log('Form data before submission:', form)
+      
+      // Ensure location is a valid enum value
+      const validLocation = ['PANTRY', 'FRIDGE', 'FREEZER', 'CABINET'].includes(form.location) 
+        ? form.location 
+        : 'PANTRY'
+      
+      console.log('Using location:', validLocation)
+      
+      // First create the inventory item
+      const itemData = {
+        name: form.name.trim(),
         category: form.category,
-        location: form.location,
-        threshold: form.threshold,
-        batches: [{
+        defaultUnit: form.unit,
+        location: validLocation,
+        threshold: form.threshold || 1,
+        tags: [],
+      }
+      
+      console.log('Item data to send:', itemData)
+      
+      const itemResult = await addItem(itemData)
+      
+      console.log('Item creation result:', itemResult)
+
+      // Then create a batch for the item if we have quantity/expiry info
+      if (itemResult.data?.createInventoryItem?.id && (form.quantity > 0 || form.expiryDate)) {
+        const batchData = {
           quantity: form.quantity,
           unit: form.unit,
           expiryDate: form.expiryDate || undefined,
           purchaseDate: new Date().toISOString(),
-          price: 0
-        }]
-      })
+          purchasePrice: 0
+        }
+        
+        console.log('Batch data to send:', batchData)
+        
+        await addBatch(itemResult.data.createInventoryItem.id, batchData)
+      }
 
       haptic.success()
       router.push('/dashboard/inventory')
@@ -312,16 +365,17 @@ export default function AddInventoryPage() {
 
               <div>
                 <Label htmlFor="location">Storage Location</Label>
-                <Select value={form.location} onValueChange={(value) => setForm(prev => ({ ...prev, location: value }))}>
+                <Select value={form.location} onValueChange={(value: 'PANTRY' | 'FRIDGE' | 'FREEZER' | 'CABINET') => setForm(prev => ({ ...prev, location: value }))}>
                   <SelectTrigger className="mt-1">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     {locations.map(location => (
                       <SelectItem key={location} value={location}>
-                        {location === 'Fridge' ? '🧊 Fridge' :
-                         location === 'Freezer' ? '❄️ Freezer' :
-                         location === 'Pantry' ? '📦 Pantry' : '🛋️ Counter'}
+                        {location === 'FRIDGE' ? '🧊 Fridge' :
+                         location === 'FREEZER' ? '❄️ Freezer' :
+                         location === 'PANTRY' ? '📦 Pantry' : 
+                         location === 'CABINET' ? '🗄️ Cabinet' : location}
                       </SelectItem>
                     ))}
                   </SelectContent>
